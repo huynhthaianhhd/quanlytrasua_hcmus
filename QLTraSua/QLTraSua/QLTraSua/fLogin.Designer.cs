@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txbUsername = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txbPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.txbUsername = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -65,67 +65,32 @@
             this.panel1.Size = new System.Drawing.Size(366, 536);
             this.panel1.TabIndex = 0;
             // 
-            // label6
+            // panel2
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(114, 448);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 17);
-            this.label6.TabIndex = 8;
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.panel2.Controls.Add(this.txbUsername);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Location = new System.Drawing.Point(10, 323);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(338, 53);
+            this.panel2.TabIndex = 0;
             // 
-            // button1
+            // label1
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(134, 448);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(135, 45);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Đăng nhập";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(0, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Tài khoản:";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
-            // label5
+            // txbUsername
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("iCiel Brush Up", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(111, 274);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(172, 46);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Đăng nhập";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::QLTraSua.Properties.Resources._3c4da6f5b40da7bc75ce90a8a99c8a28_1;
-            this.pictureBox2.Location = new System.Drawing.Point(122, 133);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(132, 138);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("iCiel Brush Up", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(62, 65);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(260, 67);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Bubble Tea";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("iCiel Brush Up", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(79, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(224, 67);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "TocoToco";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.txbUsername.Location = new System.Drawing.Point(109, 17);
+            this.txbUsername.Name = "txbUsername";
+            this.txbUsername.Size = new System.Drawing.Size(220, 22);
+            this.txbUsername.TabIndex = 1;
             // 
             // panel3
             // 
@@ -155,33 +120,37 @@
             this.label2.Text = "Mật khẩu:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // panel2
+            // label3
             // 
-            this.panel2.Controls.Add(this.txbUsername);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(10, 323);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(338, 53);
-            this.panel2.TabIndex = 0;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("iCiel Brush Up", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(79, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(221, 65);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "TocoToco";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // txbUsername
+            // label4
             // 
-            this.txbUsername.Location = new System.Drawing.Point(109, 17);
-            this.txbUsername.Name = "txbUsername";
-            this.txbUsername.Size = new System.Drawing.Size(220, 22);
-            this.txbUsername.TabIndex = 1;
-            this.txbUsername.TextChanged += new System.EventHandler(this.txbUsername_TextChanged);
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("iCiel Brush Up", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(62, 65);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(256, 65);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Bubble Tea";
             // 
-            // label1
+            // label5
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tài khoản:";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("iCiel Brush Up", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(111, 274);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(172, 46);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Đăng nhập";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // pictureBox1
             // 
@@ -193,6 +162,36 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::QLTraSua.Properties.Resources._3c4da6f5b40da7bc75ce90a8a99c8a28_1;
+            this.pictureBox2.Location = new System.Drawing.Point(122, 133);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(132, 138);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(134, 448);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(135, 45);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Đăng nhập";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(114, 448);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 17);
+            this.label6.TabIndex = 8;
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // fLogin
             // 
@@ -207,12 +206,12 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fLogin_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
