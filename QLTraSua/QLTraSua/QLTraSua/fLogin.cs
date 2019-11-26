@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLTraSua.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -49,12 +50,24 @@ namespace QLTraSua
 
         private void button1_Click(object sender, EventArgs e)
         {
-            fTable f = new fTable();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+            string userName = txbUsername.Text;
+            string passWord = txbPassword.Text;
+            if (Login(userName,passWord))
+            {
+                fTable f = new fTable();
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sai tài khoản hoặc mật khẩu", "Thông báo");
+            }
         }
-
+        bool Login(string userName,string passWord)
+        {
+            return UserDAO.Instance.Login(userName, passWord);
+        }
         private void button2_Click(object sender, EventArgs e)
         {
 
@@ -71,6 +84,11 @@ namespace QLTraSua
             {
                 e.Cancel=true;
             }
+        }
+
+        private void txbUsername_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
