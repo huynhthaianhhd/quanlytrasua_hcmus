@@ -34,10 +34,16 @@ namespace QLTraSua
                 switch (item.Status)
                 {
                     case "Trống":
-                        btn.BackColor = Color.PaleGreen;
+                        btn.FlatStyle = FlatStyle.Flat;
+                        btn.FlatAppearance.BorderColor = Color.Green;
+                        btn.FlatAppearance.BorderSize = 1;
+                        btn.ForeColor = Color.Green;
                         break;
                     case "Đã có người":
-                        btn.BackColor = Color.Salmon;
+                        btn.FlatStyle = FlatStyle.Flat;
+                        btn.FlatAppearance.BorderColor = Color.Red;
+                        btn.FlatAppearance.BorderSize = 1;
+                        btn.ForeColor = Color.Red;
                         break;
                 }
                 flpTable.Controls.Add(btn);
@@ -92,6 +98,16 @@ namespace QLTraSua
             
         }
         #endregion
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
 
         
     }
