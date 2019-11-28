@@ -52,19 +52,21 @@ namespace QLTraSua
         {
             string userName = txbUsername.Text;
             string passWord = txbPassword.Text;
-            if (Login(userName,passWord))
+            if (Login(userName, passWord))
             {
                 fTable f = new fTable();
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
+                global.GetSetUsername = userName;
+                global.GetSetPassword = passWord;
             }
             else
             {
                 MessageBox.Show("Sai tài khoản hoặc mật khẩu", "Thông báo");
             }
         }
-        bool Login(string userName,string passWord)
+        bool Login(string userName, string passWord)
         {
             return UserDAO.Instance.Login(userName, passWord);
         }
@@ -80,13 +82,18 @@ namespace QLTraSua
 
         private void fLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Bạn có thật sự muốn thoát chương trình?","Thông báo",MessageBoxButtons.OKCancel)!= System.Windows.Forms.DialogResult.OK)
+            if (MessageBox.Show("Bạn có thật sự muốn thoát chương trình?", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
             {
-                e.Cancel=true;
+                e.Cancel = true;
             }
         }
 
         private void txbUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }

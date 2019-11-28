@@ -28,3 +28,13 @@ C:\Users\WIN 10\Desktop\quanlytrasua_hcmus\quanlytrasua_hcmus\QLTraSua\QLTraSua\
 C:\Users\WIN 10\Desktop\quanlytrasua_hcmus\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.fTable.resources
 C:\Users\WIN 10\Desktop\quanlytrasua_hcmus\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.Properties.Resources.resources
 C:\Users\WIN 10\Desktop\quanlytrasua_hcmus\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.csproj.GenerateResource.Cache
+F:\Workspace\DoAn\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\bin\Debug\QLTraSua.exe.config
+F:\Workspace\DoAn\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\bin\Debug\QLTraSua.exe
+F:\Workspace\DoAn\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\bin\Debug\QLTraSua.pdb
+F:\Workspace\DoAn\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.csprojAssemblyReference.cache
+F:\Workspace\DoAn\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.fLogin.resources
+F:\Workspace\DoAn\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.fTable.resources
+F:\Workspace\DoAn\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.Properties.Resources.resources
+F:\Workspace\DoAn\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.csproj.GenerateResource.cache
+F:\Workspace\DoAn\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.exe
+F:\Workspace\DoAn\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.pdb

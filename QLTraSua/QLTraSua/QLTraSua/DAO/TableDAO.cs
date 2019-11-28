@@ -38,7 +38,6 @@ namespace QLTraSua.DAO
                     tableList.Add(table);
                }
             }
-            
             return tableList;
         }
     }

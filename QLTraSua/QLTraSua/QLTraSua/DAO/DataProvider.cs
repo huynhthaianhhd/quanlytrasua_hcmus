@@ -19,7 +19,7 @@ namespace QLTraSua.DAO
             private set { DataProvider.instance = value; }
         }
         private DataProvider(){}
-        private string connectionSTR = "Data Source=DESKTOP-QV3QMBU;Initial Catalog=QUANLYTS;Integrated Security=True";
+        private string connectionSTR = "Data Source=DESKTOP-NBS8IM4\\SQLSERVER;Initial Catalog=QUANLYTS;Integrated Security=True";
         DataTable data = new DataTable();
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
