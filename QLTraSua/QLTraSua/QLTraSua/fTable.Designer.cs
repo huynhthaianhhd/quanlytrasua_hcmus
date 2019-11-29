@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -54,19 +56,23 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label9 = new System.Windows.Forms.Label();
+            this.grandTotal = new System.Windows.Forms.Label();
             this.fTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fTableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabDetailNV.SuspendLayout();
             this.ThongTinChung.SuspendLayout();
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fTableBindingSource1)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -82,7 +88,9 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.grandTotal);
             this.tabPage1.Controls.Add(this.flowLayoutPanel1);
+            this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.flpTable);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
@@ -91,6 +99,29 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Bàn";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.listView1);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(565, 6);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(426, 372);
+            this.flowLayoutPanel1.TabIndex = 1;
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.listView1.Location = new System.Drawing.Point(3, 3);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(401, 343);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // flpTable
             // 
@@ -323,6 +354,43 @@
             this.tabPage5.Text = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Tên món";
+            this.columnHeader1.Width = 115;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "SL";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Đơn giá";
+            this.columnHeader3.Width = 76;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Thành tiền";
+            this.columnHeader4.Width = 91;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(575, 395);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(72, 17);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Tổng tiền:";
+            // 
+            // grandTotal
+            // 
+            this.grandTotal.AutoSize = true;
+            this.grandTotal.Location = new System.Drawing.Point(653, 395);
+            this.grandTotal.Name = "grandTotal";
+            this.grandTotal.Size = new System.Drawing.Size(16, 17);
+            this.grandTotal.TabIndex = 2;
+            this.grandTotal.Text = "0";
+            // 
             // fTableBindingSource
             // 
             this.fTableBindingSource.DataSource = typeof(QLTraSua.fTable);
@@ -330,22 +398,6 @@
             // fTableBindingSource1
             // 
             this.fTableBindingSource1.DataSource = typeof(QLTraSua.fTable);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.listView1);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(565, 6);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(404, 465);
-            this.flowLayoutPanel1.TabIndex = 1;
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(3, 3);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(380, 462);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // fTable
             // 
@@ -358,6 +410,8 @@
             this.Text = "Main";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabDetailNV.ResumeLayout(false);
             this.ThongTinChung.ResumeLayout(false);
@@ -366,7 +420,6 @@
             this.tabPage6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fTableBindingSource1)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -402,6 +455,12 @@
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Label grandTotal;
+        private System.Windows.Forms.Label label9;
 
     }
 }

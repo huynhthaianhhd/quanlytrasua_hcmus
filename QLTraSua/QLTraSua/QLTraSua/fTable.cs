@@ -102,7 +102,22 @@ namespace QLTraSua
             }
         }
 
-        
+        void ShowBill(int id)
+        {
+            listView1.Items.Clear();
+            List<QLTraSua.DTO.Menu> listBillInfor = MenuDAO.Instance.GetListMenuByTable(id);
+            float grandTotalPrice = 0;
+            foreach (QLTraSua.DTO.Menu item in listBillInfor)
+            {
+                ListViewItem lsvItem = new ListViewItem(item.FoodName.ToString());
+                lsvItem.SubItems.Add(item.Count.ToString());
+                lsvItem.SubItems.Add(item.Price.ToString());
+                lsvItem.SubItems.Add(item.TotalPrice.ToString());
+                grandTotalPrice += item.TotalPrice;
+                listView1.Items.Add(lsvItem);
+            }
+            grandTotal.Text = grandTotalPrice.ToString();
+        }
 
         void btn_Click(object sender, EventArgs e)
         {
@@ -112,6 +127,7 @@ namespace QLTraSua
             this.Hide();
             f.ShowDialog();
             this.Show();
+            //ShowBill(tableID);
         }
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -177,6 +193,11 @@ namespace QLTraSua
             {
                 MessageBox.Show("Thay đổi mật khẩu thất bại", "Thất bại");
             }
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
