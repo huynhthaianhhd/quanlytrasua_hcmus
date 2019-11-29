@@ -5,6 +5,14 @@
         private static string _username = "";
         private static string _password = "";
 
+        private static int tableID;
+
+        public static int TableID
+        {
+            get { return tableID; }
+            set { tableID = value; }
+        }
+
         public static string GetSetUsername
         {
             get { return _username; }

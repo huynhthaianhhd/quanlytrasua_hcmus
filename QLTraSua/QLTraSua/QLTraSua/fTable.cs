@@ -87,6 +87,8 @@ namespace QLTraSua
             {
                 Button btn = new Button() { Width = TableDAO.TableWidth, Height = TableDAO.TableHeight };
                 btn.Text = item.Name + Environment.NewLine + item.Status;
+                btn.Click += btn_Click;
+                btn.Tag = item;
                 switch (item.Status)
                 {
                     case "Trống":
@@ -98,6 +100,18 @@ namespace QLTraSua
                 }
                 flpTable.Controls.Add(btn);
             }
+        }
+
+        
+
+        void btn_Click(object sender, EventArgs e)
+        {
+            int tableID = ((sender as Button).Tag as Table).ID;
+            global.TableID = tableID;
+            fOrder f = new fOrder();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
         }
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {

@@ -44,9 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\BillDAO.cs" />
+    <Compile Include="DAO\BillInforDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\TableDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="DTO\Bill.cs" />
+    <Compile Include="DTO\BillInfor.cs" />
     <Compile Include="DTO\Table.cs" />
     <Compile Include="fAdmin.cs">
       <SubType>Form</SubType>
@@ -60,6 +64,12 @@
     <Compile Include="fLogin.Designer.cs">
       <DependentUpon>fLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="fOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fOrder.Designer.cs">
+      <DependentUpon>fOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="fTable.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +81,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fOrder.resx">
+      <DependentUpon>fOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fTable.resx">
       <DependentUpon>fTable.cs</DependentUpon>

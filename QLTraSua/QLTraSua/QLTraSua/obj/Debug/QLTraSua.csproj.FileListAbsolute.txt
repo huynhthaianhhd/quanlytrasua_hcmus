@@ -48,3 +48,4 @@ C:\Users\WIN 10\Desktop\quanlytrasua_hcmus-16fbaf055728c2b457cae7d027b846b2066ef
 C:\Users\WIN 10\Desktop\quanlytrasua_hcmus-16fbaf055728c2b457cae7d027b846b2066efc50\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.fTable.resources
 C:\Users\WIN 10\Desktop\quanlytrasua_hcmus-16fbaf055728c2b457cae7d027b846b2066efc50\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.Properties.Resources.resources
 C:\Users\WIN 10\Desktop\quanlytrasua_hcmus-16fbaf055728c2b457cae7d027b846b2066efc50\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.csproj.GenerateResource.Cache
+C:\Users\WIN 10\Desktop\quanlytrasua_hcmus-16fbaf055728c2b457cae7d027b846b2066efc50\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.fOrder.resources
