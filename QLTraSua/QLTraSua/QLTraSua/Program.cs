@@ -16,7 +16,7 @@ namespace QLTraSua
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fTable());
+            Application.Run(new fLogin());
         }
     }
 }

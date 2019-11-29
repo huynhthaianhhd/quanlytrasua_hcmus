@@ -54,6 +54,8 @@ namespace QLTraSua
             string passWord = txbPassword.Text;
             if (Login(userName,passWord))
             {
+                global.GetSetUsername = userName;
+                global.GetSetPassword = passWord;
                 fTable f = new fTable();
                 this.Hide();
                 f.ShowDialog();

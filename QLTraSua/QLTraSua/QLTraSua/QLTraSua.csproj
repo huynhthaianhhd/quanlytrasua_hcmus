@@ -66,6 +66,7 @@
     <Compile Include="fTable.Designer.cs">
       <DependentUpon>fTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="global.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fLogin.resx">

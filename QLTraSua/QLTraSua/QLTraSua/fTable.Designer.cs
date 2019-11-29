@@ -31,31 +31,40 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.fTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.fTableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.Thongtinchung = new System.Windows.Forms.TabControl();
-            this.thongtin = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.tabDetailNV = new System.Windows.Forms.TabControl();
+            this.ThongTinChung = new System.Windows.Forms.TabPage();
+            this.nv_email = new System.Windows.Forms.Label();
+            this.nv_sdt = new System.Windows.Forms.Label();
+            this.nv_username = new System.Windows.Forms.Label();
+            this.nv_hoten = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.tb_passwordCurrent = new System.Windows.Forms.TextBox();
+            this.tb_passwordNew = new System.Windows.Forms.TextBox();
+            this.tb_passwordNew_2 = new System.Windows.Forms.TextBox();
+            this.saveNewPassword = new System.Windows.Forms.Button();
+            this.fTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fTableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.tabDetailNV.SuspendLayout();
+            this.ThongTinChung.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fTableBindingSource1)).BeginInit();
-            this.Thongtinchung.SuspendLayout();
-            this.thongtin.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -81,6 +90,13 @@
             this.tabPage1.Text = "Bàn";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // flpTable
+            // 
+            this.flpTable.Location = new System.Drawing.Point(6, 3);
+            this.flpTable.Name = "flpTable";
+            this.flpTable.Size = new System.Drawing.Size(988, 474);
+            this.flpTable.TabIndex = 0;
+            // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
@@ -90,13 +106,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Chọn món";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // flpTable
-            // 
-            this.flpTable.Location = new System.Drawing.Point(6, 3);
-            this.flpTable.Name = "flpTable";
-            this.flpTable.Size = new System.Drawing.Size(988, 474);
-            this.flpTable.TabIndex = 0;
             // 
             // tabPage3
             // 
@@ -110,7 +119,7 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.Thongtinchung);
+            this.tabPage4.Controls.Add(this.tabDetailNV);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -118,65 +127,105 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Tài khoản";
             this.tabPage4.UseVisualStyleBackColor = true;
+            this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
             // 
-            // fTableBindingSource
+            // tabDetailNV
             // 
-            this.fTableBindingSource.DataSource = typeof(QLTraSua.fTable);
+            this.tabDetailNV.Alignment = System.Windows.Forms.TabAlignment.Left;
+            this.tabDetailNV.Controls.Add(this.ThongTinChung);
+            this.tabDetailNV.Controls.Add(this.tabPage6);
+            this.tabDetailNV.Controls.Add(this.tabPage5);
+            this.tabDetailNV.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tabDetailNV.ItemSize = new System.Drawing.Size(40, 100);
+            this.tabDetailNV.Location = new System.Drawing.Point(89, 32);
+            this.tabDetailNV.Multiline = true;
+            this.tabDetailNV.Name = "tabDetailNV";
+            this.tabDetailNV.SelectedIndex = 0;
+            this.tabDetailNV.Size = new System.Drawing.Size(826, 415);
+            this.tabDetailNV.TabIndex = 0;
             // 
-            // fTableBindingSource1
+            // ThongTinChung
             // 
-            this.fTableBindingSource1.DataSource = typeof(QLTraSua.fTable);
+            this.ThongTinChung.Controls.Add(this.nv_email);
+            this.ThongTinChung.Controls.Add(this.nv_sdt);
+            this.ThongTinChung.Controls.Add(this.nv_username);
+            this.ThongTinChung.Controls.Add(this.nv_hoten);
+            this.ThongTinChung.Controls.Add(this.label5);
+            this.ThongTinChung.Controls.Add(this.label4);
+            this.ThongTinChung.Controls.Add(this.label3);
+            this.ThongTinChung.Controls.Add(this.label2);
+            this.ThongTinChung.Controls.Add(this.label1);
+            this.ThongTinChung.Location = new System.Drawing.Point(104, 4);
+            this.ThongTinChung.Name = "ThongTinChung";
+            this.ThongTinChung.Padding = new System.Windows.Forms.Padding(3);
+            this.ThongTinChung.Size = new System.Drawing.Size(718, 407);
+            this.ThongTinChung.TabIndex = 0;
+            this.ThongTinChung.Text = "Thông tin nhân viên";
+            this.ThongTinChung.UseVisualStyleBackColor = true;
+            this.ThongTinChung.Click += new System.EventHandler(this.tabPage5_Click);
             // 
-            // Thongtinchung
+            // nv_email
             // 
-            this.Thongtinchung.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.Thongtinchung.Controls.Add(this.thongtin);
-            this.Thongtinchung.Controls.Add(this.tabPage6);
-            this.Thongtinchung.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.Thongtinchung.Location = new System.Drawing.Point(89, 32);
-            this.Thongtinchung.Multiline = true;
-            this.Thongtinchung.Name = "Thongtinchung";
-            this.Thongtinchung.SelectedIndex = 0;
-            this.Thongtinchung.Size = new System.Drawing.Size(826, 415);
-            this.Thongtinchung.TabIndex = 0;
+            this.nv_email.AutoSize = true;
+            this.nv_email.Location = new System.Drawing.Point(229, 226);
+            this.nv_email.Name = "nv_email";
+            this.nv_email.Size = new System.Drawing.Size(134, 17);
+            this.nv_email.TabIndex = 8;
+            this.nv_email.Text = "Thông tin nhân viên";
             // 
-            // thongtin
+            // nv_sdt
             // 
-            this.thongtin.Controls.Add(this.label9);
-            this.thongtin.Controls.Add(this.label8);
-            this.thongtin.Controls.Add(this.label7);
-            this.thongtin.Controls.Add(this.label6);
-            this.thongtin.Controls.Add(this.label5);
-            this.thongtin.Controls.Add(this.label4);
-            this.thongtin.Controls.Add(this.label3);
-            this.thongtin.Controls.Add(this.label2);
-            this.thongtin.Controls.Add(this.label1);
-            this.thongtin.Location = new System.Drawing.Point(25, 4);
-            this.thongtin.Name = "thongtin";
-            this.thongtin.Padding = new System.Windows.Forms.Padding(3);
-            this.thongtin.Size = new System.Drawing.Size(797, 407);
-            this.thongtin.TabIndex = 0;
-            this.thongtin.UseVisualStyleBackColor = true;
-            this.thongtin.Click += new System.EventHandler(this.tabPage5_Click);
+            this.nv_sdt.AutoSize = true;
+            this.nv_sdt.Location = new System.Drawing.Point(229, 184);
+            this.nv_sdt.Name = "nv_sdt";
+            this.nv_sdt.Size = new System.Drawing.Size(134, 17);
+            this.nv_sdt.TabIndex = 7;
+            this.nv_sdt.Text = "Thông tin nhân viên";
             // 
-            // tabPage6
+            // nv_username
             // 
-            this.tabPage6.Location = new System.Drawing.Point(25, 4);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(797, 407);
-            this.tabPage6.TabIndex = 1;
-            this.tabPage6.Text = "tabPage6";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.nv_username.AutoSize = true;
+            this.nv_username.Location = new System.Drawing.Point(229, 138);
+            this.nv_username.Name = "nv_username";
+            this.nv_username.Size = new System.Drawing.Size(134, 17);
+            this.nv_username.TabIndex = 6;
+            this.nv_username.Text = "Thông tin nhân viên";
             // 
-            // label1
+            // nv_hoten
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(303, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Thông tin nhân viên";
+            this.nv_hoten.AutoSize = true;
+            this.nv_hoten.Location = new System.Drawing.Point(229, 95);
+            this.nv_hoten.Name = "nv_hoten";
+            this.nv_hoten.Size = new System.Drawing.Size(134, 17);
+            this.nv_hoten.TabIndex = 5;
+            this.nv_hoten.Text = "Thông tin nhân viên";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(113, 226);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(42, 17);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Email";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(93, 184);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(99, 17);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Số điện thoại :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(104, 138);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 17);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Username :";
             // 
             // label2
             // 
@@ -188,68 +237,107 @@
             this.label2.Text = "Họ tên :";
             this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
-            // label3
+            // label1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(104, 138);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 17);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Username :";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(303, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(134, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Thông tin nhân viên";
             // 
-            // label4
+            // tabPage6
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(93, 184);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 17);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Số điện thoại :";
+            this.tabPage6.Controls.Add(this.saveNewPassword);
+            this.tabPage6.Controls.Add(this.tb_passwordNew_2);
+            this.tabPage6.Controls.Add(this.tb_passwordNew);
+            this.tabPage6.Controls.Add(this.tb_passwordCurrent);
+            this.tabPage6.Controls.Add(this.label8);
+            this.tabPage6.Controls.Add(this.label7);
+            this.tabPage6.Controls.Add(this.label6);
+            this.tabPage6.Location = new System.Drawing.Point(104, 4);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(718, 407);
+            this.tabPage6.TabIndex = 1;
+            this.tabPage6.Text = "tabPage6";
+            this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // tabPage5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(72, 226);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(142, 17);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Thông tin nhân viên :";
+            this.tabPage5.Location = new System.Drawing.Point(104, 4);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(718, 407);
+            this.tabPage5.TabIndex = 2;
+            this.tabPage5.Text = "tabPage5";
+            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(229, 95);
+            this.label6.Location = new System.Drawing.Point(97, 40);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(134, 17);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Thông tin nhân viên";
+            this.label6.Size = new System.Drawing.Size(116, 17);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Mật khẩu hiện tại";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(229, 138);
+            this.label7.Location = new System.Drawing.Point(97, 81);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(134, 17);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Thông tin nhân viên";
+            this.label7.Size = new System.Drawing.Size(92, 17);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Mật khẩu mới";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(229, 184);
+            this.label8.Location = new System.Drawing.Point(97, 126);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(134, 17);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Thông tin nhân viên";
+            this.label8.Size = new System.Drawing.Size(148, 17);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Nhập lại mật khẩu mới";
             // 
-            // label9
+            // tb_passwordCurrent
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(229, 226);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(134, 17);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Thông tin nhân viên";
+            this.tb_passwordCurrent.Location = new System.Drawing.Point(290, 40);
+            this.tb_passwordCurrent.Name = "tb_passwordCurrent";
+            this.tb_passwordCurrent.Size = new System.Drawing.Size(100, 22);
+            this.tb_passwordCurrent.TabIndex = 3;
+            // 
+            // tb_passwordNew
+            // 
+            this.tb_passwordNew.Location = new System.Drawing.Point(290, 68);
+            this.tb_passwordNew.Name = "tb_passwordNew";
+            this.tb_passwordNew.Size = new System.Drawing.Size(100, 22);
+            this.tb_passwordNew.TabIndex = 4;
+            // 
+            // tb_passwordNew_2
+            // 
+            this.tb_passwordNew_2.Location = new System.Drawing.Point(290, 123);
+            this.tb_passwordNew_2.Name = "tb_passwordNew_2";
+            this.tb_passwordNew_2.Size = new System.Drawing.Size(100, 22);
+            this.tb_passwordNew_2.TabIndex = 5;
+            // 
+            // saveNewPassword
+            // 
+            this.saveNewPassword.Location = new System.Drawing.Point(272, 193);
+            this.saveNewPassword.Name = "saveNewPassword";
+            this.saveNewPassword.Size = new System.Drawing.Size(75, 23);
+            this.saveNewPassword.TabIndex = 6;
+            this.saveNewPassword.Text = "Lưu";
+            this.saveNewPassword.UseVisualStyleBackColor = true;
+            this.saveNewPassword.Click += new System.EventHandler(this.saveNewPassword_Click_1);
+            // 
+            // fTableBindingSource
+            // 
+            this.fTableBindingSource.DataSource = typeof(QLTraSua.fTable);
+            // 
+            // fTableBindingSource1
+            // 
+            this.fTableBindingSource1.DataSource = typeof(QLTraSua.fTable);
             // 
             // fTable
             // 
@@ -263,11 +351,13 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
+            this.tabDetailNV.ResumeLayout(false);
+            this.ThongTinChung.ResumeLayout(false);
+            this.ThongTinChung.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fTableBindingSource1)).EndInit();
-            this.Thongtinchung.ResumeLayout(false);
-            this.thongtin.ResumeLayout(false);
-            this.thongtin.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -282,18 +372,26 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TabControl Thongtinchung;
-        private System.Windows.Forms.TabPage thongtin;
+        private System.Windows.Forms.TabControl tabDetailNV;
+        private System.Windows.Forms.TabPage ThongTinChung;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label nv_email;
+        private System.Windows.Forms.Label nv_sdt;
+        private System.Windows.Forms.Label nv_username;
+        private System.Windows.Forms.Label nv_hoten;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button saveNewPassword;
+        private System.Windows.Forms.TextBox tb_passwordNew_2;
+        private System.Windows.Forms.TextBox tb_passwordNew;
+        private System.Windows.Forms.TextBox tb_passwordCurrent;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TabPage tabPage5;
 
     }
 }
