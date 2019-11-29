@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace QLTraSua.DTO
 
         public Table(DataRow row)
         {
-            //this.ID = (int)row["ID_TABLE"];
+            this.ID = (int)row["ID_TABLE"];
             this.Name = row["NAME_TABLE"].ToString();
             this.Status = row["STATUS"].ToString();
         }
@@ -48,3 +49,5 @@ namespace QLTraSua.DTO
         }
     }
 }
+
+

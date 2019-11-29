@@ -11,26 +11,29 @@ namespace QLTraSua.DAO
 {
     public class DataProvider
     {
-        private static DataProvider instance;
+        private static DataProvider instance; // Ctrl + R + E
 
         public static DataProvider Instance
         {
-            get { if (instance == null) instance = new DataProvider();  return DataProvider.instance; }
+            get { if (instance == null) instance = new DataProvider(); return DataProvider.instance; }
             private set { DataProvider.instance = value; }
         }
+
         private DataProvider(){}
-        private string connectionSTR = "Data Source=DESKTOP-NBS8IM4\\SQLSERVER;Initial Catalog=QUANLYTS;Integrated Security=True";
-        DataTable data = new DataTable();
+
+        private string connectionSTR = "Data Source=DESKTOP-QV3QMBU;Initial Catalog=QUANLYTS;Integrated Security=True";
+        
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
-            // NORMAL
+            DataTable data = new DataTable();
+
             using (SqlConnection connection = new SqlConnection(connectionSTR))
             {
                 connection.Open();
+
                 SqlCommand command = new SqlCommand(query, connection);
-
-
-                if (parameter!=null)
+                
+                if (parameter != null)
                 {
                     string[] listPara = query.Split(' ');
                     int i = 0;
@@ -43,23 +46,26 @@ namespace QLTraSua.DAO
                         }
                     }
                 }
-
+                
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
+
                 adapter.Fill(data);
+
                 connection.Close();
             }
+
             return data;
         }
 
         public int ExecuteNonQuery(string query, object[] parameter = null)
         {
-            // INSERT - UPDATE
             int data = 0;
+
             using (SqlConnection connection = new SqlConnection(connectionSTR))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
 
+                SqlCommand command = new SqlCommand(query, connection);
 
                 if (parameter != null)
                 {
@@ -76,20 +82,22 @@ namespace QLTraSua.DAO
                 }
 
                 data = command.ExecuteNonQuery();
+
                 connection.Close();
             }
+
             return data;
         }
 
         public object ExecuteScalar(string query, object[] parameter = null)
         {
-            // COUNT *
             object data = 0;
+
             using (SqlConnection connection = new SqlConnection(connectionSTR))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
 
+                SqlCommand command = new SqlCommand(query, connection);
 
                 if (parameter != null)
                 {
@@ -106,10 +114,12 @@ namespace QLTraSua.DAO
                 }
 
                 data = command.ExecuteScalar();
+
                 connection.Close();
             }
+
             return data;
         }
     }
-    
 }
+

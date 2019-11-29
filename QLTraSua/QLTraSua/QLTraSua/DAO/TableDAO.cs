@@ -1,10 +1,11 @@
-﻿using QLTraSua.DTO;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using QLTraSua.DTO;
 
 namespace QLTraSua.DAO
 {
@@ -23,22 +24,21 @@ namespace QLTraSua.DAO
 
         private TableDAO() { }
 
-        
 
         public List<Table> LoadTableList()
         {
             List<Table> tableList = new List<Table>();
-            
+
             DataTable data = DataProvider.Instance.ExecuteQuery("US_getTableList");
+
             foreach (DataRow item in data.Rows)
             {
-               if (!item.IsNull("ID_TABLE"))
-               {
-                    Table table = new Table(item);
-                    tableList.Add(table);
-               }
+                Table table = new Table(item);
+                tableList.Add(table);
             }
+
             return tableList;
         }
     }
 }
+
