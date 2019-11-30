@@ -49,3 +49,14 @@ C:\Users\WIN 10\Desktop\quanlytrasua_hcmus-16fbaf055728c2b457cae7d027b846b2066ef
 C:\Users\WIN 10\Desktop\quanlytrasua_hcmus-16fbaf055728c2b457cae7d027b846b2066efc50\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.Properties.Resources.resources
 C:\Users\WIN 10\Desktop\quanlytrasua_hcmus-16fbaf055728c2b457cae7d027b846b2066efc50\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.csproj.GenerateResource.Cache
 C:\Users\WIN 10\Desktop\quanlytrasua_hcmus-16fbaf055728c2b457cae7d027b846b2066efc50\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.fOrder.resources
+F:\USER\Downloads\quanlytrasua_hcmus-master-2\QLTraSua\QLTraSua\QLTraSua\bin\Debug\QLTraSua.exe.config
+F:\USER\Downloads\quanlytrasua_hcmus-master-2\QLTraSua\QLTraSua\QLTraSua\bin\Debug\QLTraSua.exe
+F:\USER\Downloads\quanlytrasua_hcmus-master-2\QLTraSua\QLTraSua\QLTraSua\bin\Debug\QLTraSua.pdb
+F:\USER\Downloads\quanlytrasua_hcmus-master-2\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.csprojAssemblyReference.cache
+F:\USER\Downloads\quanlytrasua_hcmus-master-2\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.fLogin.resources
+F:\USER\Downloads\quanlytrasua_hcmus-master-2\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.fOrder.resources
+F:\USER\Downloads\quanlytrasua_hcmus-master-2\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.fTable.resources
+F:\USER\Downloads\quanlytrasua_hcmus-master-2\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.Properties.Resources.resources
+F:\USER\Downloads\quanlytrasua_hcmus-master-2\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.csproj.GenerateResource.cache
+F:\USER\Downloads\quanlytrasua_hcmus-master-2\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.exe
+F:\USER\Downloads\quanlytrasua_hcmus-master-2\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.pdb

@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\BillDAO.cs" />
     <Compile Include="DAO\BillInforDAO.cs" />
     <Compile Include="DAO\CateroryDAO.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="DAO\MenuDAO.cs" />
     <Compile Include="DAO\TableDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="DTO\Account.cs" />
     <Compile Include="DTO\Bill.cs" />
     <Compile Include="DTO\BillInfor.cs" />
     <Compile Include="DTO\Category.cs" />

@@ -74,6 +74,7 @@ namespace QLTraSua.DAO
             nvDetail.Add(result.Rows[0]["USERNAME"].ToString());
             nvDetail.Add(result.Rows[0]["PHONE"].ToString());
             nvDetail.Add(result.Rows[0]["EMAIL"].ToString());
+            nvDetail.Add(result.Rows[0]["PERMISSION"].ToString());
             return nvDetail;
         }
 

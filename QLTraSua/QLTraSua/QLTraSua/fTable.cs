@@ -15,6 +15,7 @@ namespace QLTraSua
 {
     public partial class fTable : Form
     {
+        BindingSource accountList = new BindingSource();
         public fTable()
         {
             InitializeComponent();
@@ -22,12 +23,53 @@ namespace QLTraSua
             tabDetailNV.DrawItem += new DrawItemEventHandler(tabDetailNV_DrawItem);
             tabDetailNV.SelectedIndexChanged += new EventHandler(Tabs_SelectedIndexChanged);
             loadNhanVien();
+            LoadAll();
+        }
+
+        void LoadAll()
+        {
+            LoadTable();
+            tabDetailNV.DrawItem += new DrawItemEventHandler(tabDetailNV_DrawItem);
+            tabDetailNV.SelectedIndexChanged += new EventHandler(Tabs_SelectedIndexChanged);
+            loadNhanVien();
+            LoadAccount();
+            AddAccountBinding();
+        }
+
+        void LoadAccount()
+        {
+            dataListNV.DataSource = accountList;
+            accountList.DataSource = AccountDAO.Instance.GetListAccount();
+            tbAdminPhone.Controls[0].Visible = false;
+        }
+        void AddAccountBinding()
+        {
+            tbAdminUsername.DataBindings.Add(new Binding("Text", dataListNV.DataSource, "USERNAME", true, DataSourceUpdateMode.Never));
+            tbAdminName.DataBindings.Add(new Binding("Text", dataListNV.DataSource, "NAME_USER", true, DataSourceUpdateMode.Never));
+            tbAdminPhone.DataBindings.Add(new Binding("Value", dataListNV.DataSource, "PHONE", true, DataSourceUpdateMode.Never));
+            tbAdminEmail.DataBindings.Add(new Binding("Text", dataListNV.DataSource, "EMAIL", true, DataSourceUpdateMode.Never));
+
+            cbPermission.DataBindings.Add(new Binding("Text", dataListNV.DataSource, "PERMISSION", true, DataSourceUpdateMode.Never));
         }
         private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabDetailNV.SelectedIndex == 2)
+            if (tabDetailNV.SelectedIndex == 3)
             {
                 this.Close();
+            }
+            else if (tabDetailNV.SelectedIndex == 2)
+            {
+                List<string> nvDetail = UserDAO.Instance.LoadNhanVienDetail();
+
+                if (nvDetail[4] == "0")
+                {
+                    tabDetailNV.SelectTab(ThongTinChung);
+                    MessageBox.Show("Bạn không phải là admin", "Thông báo");
+                }
+                else
+                {
+
+                }
             }
         }
 
@@ -38,6 +80,14 @@ namespace QLTraSua
             nv_username.Text = nvDetail[1];
             nv_sdt.Text = nvDetail[2];
             nv_email.Text = nvDetail[3];
+            if (nvDetail[4] == "1")
+            {
+                nv_permission.Text = "Admin";
+            }
+            else
+            {
+                nv_permission.Text = "Nhân viên";
+            }
         }
         private void tabDetailNV_DrawItem(object sender, DrawItemEventArgs e)
         {
@@ -198,6 +248,139 @@ namespace QLTraSua
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void labelTTNV_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        void AddAccount(string username, int permission, string name_user, string email, int phone)
+        {
+            if (AccountDAO.Instance.InsertAccount(username, permission, name_user, email, phone))
+            {
+                MessageBox.Show("Thêm tài khoản thành công");
+            }
+            else
+            {
+                MessageBox.Show("Thêm tài khoản thất bại");
+            }
+            LoadAccount();
+        }
+
+        void EditAccount(string username, int permission, string name_user, string email, int phone)
+        {
+            if (AccountDAO.Instance.UpdateAccount(username, permission, name_user, email, phone))
+            {
+                MessageBox.Show("Cập nhật tài khoản thành công");
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật tài khoản thất bại");
+            }
+            LoadAccount();
+        }
+
+        void DeleteAccount(string username)
+        {
+            if (global.GetSetUsername == username)
+            {
+                MessageBox.Show("Bạn đang đăng nhập bằng tài khoản này", "Error");
+            }
+            else
+            {
+                if (AccountDAO.Instance.DeleteAccount(username))
+                {
+                    MessageBox.Show("Xóa tài khoản thành công");
+                }
+                else
+                {
+                    MessageBox.Show("Xóa tài khoản thất bại");
+                }
+                LoadAccount();
+            }
+        }
+
+        void ResetPassword(string username)
+        {
+            if (global.GetSetUsername == username)
+            {
+                if (MessageBox.Show("Bạn reset mật khẩu của chính mình?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (AccountDAO.Instance.ResetPassword(username))
+                    {
+                        MessageBox.Show("Reset mật khẩu thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Reset mật khẩu thất bại");
+                    }
+                }
+                else
+                {
+                }
+            }
+            else
+            {
+                if (AccountDAO.Instance.ResetPassword(username))
+                {
+                    MessageBox.Show("Reset mật khẩu thành công");
+                }
+                else
+                {
+                    MessageBox.Show("Reset mật khẩu thất bại");
+                }
+            }
+        }
+
+        private void saveNewPassword_Click(object sender, EventArgs e)
+        {
+            string currentPassword = tb_passwordCurrent.Text;
+            string newPassword = tb_passwordNew.Text;
+            string newPassword_2 = tb_passwordNew_2.Text;
+
+            if (changePassword(currentPassword, newPassword, newPassword_2))
+            {
+                MessageBox.Show("Thay đổi mật khẩu thành công", "Thành công");
+            }
+            else
+            {
+                MessageBox.Show("Thay đổi mật khẩu thất bại", "Thất bại");
+            }
+        }
+
+        private void buttonAdminSave_Click_1(object sender, EventArgs e)
+        {
+            string username = tbAdminUsername.Text;
+            int permission = (cbPermission.Text == "0") ? 0 : 1;
+            string name_user = tbAdminName.Text;
+            string email = tbAdminEmail.Text;
+            int phone = (int)tbAdminPhone.Value;
+
+            EditAccount(username, permission, name_user, email, phone);
+        }
+
+        private void buttonAdminDelete_Click_1(object sender, EventArgs e)
+        {
+            string username = tbAdminUsername.Text;
+            DeleteAccount(username);
+        }
+
+        private void buttonAdminAdd_Click_1(object sender, EventArgs e)
+        {
+            string username = tbAdminUsername.Text;
+            int permission = (cbPermission.Text == "0") ? 0 : 1;
+            string name_user = tbAdminName.Text;
+            string email = tbAdminEmail.Text;
+            int phone = (int)tbAdminPhone.Value;
+
+            AddAccount(username, permission, name_user, email, phone);
+        }
+
+        private void buttonAdminReset_Click_1(object sender, EventArgs e)
+        {
+            string username = tbAdminUsername.Text;
+            ResetPassword(username);
         }
     }
 }
