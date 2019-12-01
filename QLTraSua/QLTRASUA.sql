@@ -42,6 +42,8 @@ CREATE TABLE BILL(
 	ORDERTIME DATE NOT NULL DEFAULT GETDATE(),
 	ID_TABLE INT NOT NULL,
 	IS_PAID INT NOT NULL DEFAULT 0, -- 0 : CHƯA THANH TOÁN , 1 : ĐÃ THANH TOÁN
+	IS_TAKEAWAY INT NOT NULL DEFAULT 0,
+	TOTAL_PRICE FLOAT NOT NULL DEFAULT 0
 	FOREIGN KEY (ID_TABLE) REFERENCES DBO.TABLE_DRINK(ID_TABLE)
 )
 GO
@@ -95,7 +97,7 @@ VALUES  ( N'a1' , -- USERNAME - nvarchar(100)
         )
 
 
-DECLARE @i INT =0
+DECLARE @i INT =1
 WHILE @i<=10
 BEGIN
 	INSERT dbo.TABLE_DRINK ( NAME_TABLE, STATUS ) VALUES  ( N'' + CAST(@i AS NVARCHAR(100)), N'Trống' )
@@ -183,31 +185,37 @@ VALUES  ( N'Trà sữa truyền thống' , -- NAME_DRINK - nvarchar(100)
 INSERT dbo.BILL
         ( ORDERTIME ,
           ID_TABLE ,
-          IS_PAID 
+          IS_PAID ,
+		  IS_TAKEAWAY
         )
 VALUES  ( GETDATE() , -- ORDERTIME - date
           1 , -- ID_TABLE - int
-          0 
+          0 ,
+		  0
         )
 
 INSERT dbo.BILL
         ( ORDERTIME ,
           ID_TABLE ,
-          IS_PAID 
+          IS_PAID ,
+		  IS_TAKEAWAY
         )
 VALUES  ( GETDATE() , -- ORDERTIME - date
           2 , -- ID_TABLE - int
-          0 
+          0 ,
+		  0
         )
 
 INSERT dbo.BILL
         ( ORDERTIME ,
           ID_TABLE ,
-          IS_PAID 
+          IS_PAID,
+		  IS_TAKEAWAY
         )
 VALUES  ( GETDATE() , -- ORDERTIME - date
           3 , -- ID_TABLE - int
-          1 
+          1 ,
+		  0
         )
 
 
@@ -285,9 +293,87 @@ BEGIN
 	END
 END
 GO
-GO
+
+
+
 EXEC dbo.US_getInfor @username = N'a1' -- nvarchar(100)
 
+GO 
+
+CREATE PROC US_InsertBill
+@idTable INT
+AS
+BEGIN
+	INSERT dbo.BILL
+	        ( ORDERTIME, ID_TABLE, IS_PAID, IS_TAKEAWAY )
+	VALUES  ( GETDATE(), -- ORDERTIME - date
+	          @idTable, -- ID_TABLE - int
+	          0 , -- IS_PAID - int
+			  0
+	          )
+END
+GO
+
+
+CREATE PROC US_InsertBillInfo
+@idBill INT, @idFood INT, @count INT
+AS
+BEGIN
+
+	DECLARE @isExitsBillInfo INT
+	DECLARE @foodCount INT = 1
+	
+	SELECT @isExitsBillInfo = b.ID_BILL_DETAIL, @foodCount = b.QUANTITY 
+	FROM dbo.DETAIL_BILL AS b 
+	WHERE b.ID_BILL = @idBill AND b.ID_DRINK = @idFood
+
+	IF (@isExitsBillInfo > 0)
+	BEGIN
+		DECLARE @newCount INT = @foodCount + @count
+		IF (@newCount > 0)
+			UPDATE dbo.DETAIL_BILL	SET QUANTITY = @foodCount + @count WHERE ID_DRINK = @idFood
+		ELSE
+			DELETE dbo.DETAIL_BILL WHERE ID_BILL = @idBill AND ID_DRINK = @idFood
+	END
+	ELSE
+		BEGIN
+			INSERT dbo.DETAIL_BILL
+			        ( ID_BILL, ID_DRINK, QUANTITY )
+			VALUES  ( @idBill, -- ID_BILL - int
+			          @idFood, -- ID_DRINK - int
+			          @count  -- QUANTITY - int
+			          )
+		END
+END
+GO
+
+CREATE TRIGGER UTG_UpdateBillInfor
+ON dbo.DETAIL_BILL FOR INSERT, UPDATE
+AS
+BEGIN
+	DECLARE @idBill INT
+	SELECT @idBill = ID_BILL FROM Inserted
+	DECLARE @idTable INT
+	SELECT @idTable = ID_TABLE FROM dbo.BILL WHERE ID_BILL=@idBill AND IS_PAID = 0
+	UPDATE dbo.TABLE_DRINK SET STATUS = N'Đã có người' WHERE ID_TABLE= @idTable
+END
+
+GO
+
+
+
+
+DELETE FROM dbo.DETAIL_BILL
+DELETE FROM dbo.BILL
+
+
+SELECT * FROM dbo.BILL
+SELECT * FROM dbo.DETAIL_BILL
+SELECT * FROM dbo.BILL WHERE ID_TABLE = 1 AND IS_PAID = 0
+GO
+
 SELECT f.NAME_DRINK, bi.QUANTITY, f.PRICE, f.PRICE*bi.QUANTITY AS totalPrice 
-FROM dbo.DETAIL_BILL AS bi, dbo.BILL AS b, dbo.DRINK AS f 
-WHERE bi.ID_BILL = b.ID_BILL AND bi.ID_DRINK = f.ID_DRINK AND b.IS_PAID = 0 AND b.ID_TABLE = 1
+FROM dbo.DETAIL_BILL AS bi, dbo.BILL AS b, dbo.DRINK AS f ,dbo.TABLE_DRINK AS d
+WHERE d.ID_TABLE= b.ID_TABLE AND bi.ID_BILL = b.ID_BILL AND bi.ID_DRINK = f.ID_DRINK AND d.STATUS = N'Trống' AND b.IS_PAID=0 AND b.ID_TABLE = 1 
+
+EXEC dbo.US_getTableList

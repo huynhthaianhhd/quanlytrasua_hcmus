@@ -58,6 +58,7 @@
     <Compile Include="DTO\BillInfor.cs" />
     <Compile Include="DTO\Category.cs" />
     <Compile Include="DTO\Food.cs" />
+    <Compile Include="DTO\FoodOder.cs" />
     <Compile Include="DTO\Menu.cs" />
     <Compile Include="DTO\Table.cs" />
     <Compile Include="fAdmin.cs">
@@ -78,6 +79,12 @@
     <Compile Include="fOrder.Designer.cs">
       <DependentUpon>fOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="fPopupOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fPopupOrder.Designer.cs">
+      <DependentUpon>fPopupOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="fTable.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fOrder.resx">
       <DependentUpon>fOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fPopupOrder.resx">
+      <DependentUpon>fPopupOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fTable.resx">
       <DependentUpon>fTable.cs</DependentUpon>

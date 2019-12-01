@@ -16,13 +16,11 @@ namespace QLTraSua
     public partial class fTable : Form
     {
         BindingSource accountList = new BindingSource();
+        int isPaid = 0;
+
         public fTable()
         {
             InitializeComponent();
-            LoadTable();
-            tabDetailNV.DrawItem += new DrawItemEventHandler(tabDetailNV_DrawItem);
-            tabDetailNV.SelectedIndexChanged += new EventHandler(Tabs_SelectedIndexChanged);
-            loadNhanVien();
             LoadAll();
         }
 
@@ -32,6 +30,7 @@ namespace QLTraSua
             tabDetailNV.DrawItem += new DrawItemEventHandler(tabDetailNV_DrawItem);
             tabDetailNV.SelectedIndexChanged += new EventHandler(Tabs_SelectedIndexChanged);
             loadNhanVien();
+            loadUpdate();
             LoadAccount();
             AddAccountBinding();
         }
@@ -50,6 +49,14 @@ namespace QLTraSua
             tbAdminEmail.DataBindings.Add(new Binding("Text", dataListNV.DataSource, "EMAIL", true, DataSourceUpdateMode.Never));
 
             cbPermission.DataBindings.Add(new Binding("Text", dataListNV.DataSource, "PERMISSION", true, DataSourceUpdateMode.Never));
+        }
+
+        void loadUpdate()
+        {
+            List<Table> listTABLE = TableDAO.Instance.LoadTableList();
+            cbUp.DataSource = listTABLE;
+            cbUp.DisplayMember = "Name";
+
         }
         private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -80,14 +87,7 @@ namespace QLTraSua
             nv_username.Text = nvDetail[1];
             nv_sdt.Text = nvDetail[2];
             nv_email.Text = nvDetail[3];
-            if (nvDetail[4] == "1")
-            {
-                nv_permission.Text = "Admin";
-            }
-            else
-            {
-                nv_permission.Text = "Nhân viên";
-            }
+            nv_permission.Text = nvDetail[4];
         }
         private void tabDetailNV_DrawItem(object sender, DrawItemEventArgs e)
         {
@@ -127,7 +127,7 @@ namespace QLTraSua
         {
             return UserDAO.Instance.ChangePassword(currentPassword, newPassword, newPassword_2);
         }
-        void LoadTable()
+        public void LoadTable()
         {
             flpTable.Controls.Clear();
 
@@ -136,23 +136,37 @@ namespace QLTraSua
             foreach (Table item in tableList)
             {
                 Button btn = new Button() { Width = TableDAO.TableWidth, Height = TableDAO.TableHeight };
-                btn.Text = item.Name + Environment.NewLine + item.Status;
+                string status;
+                if (BillDAO.Instance.GetBillByTableID(item.ID) == 1)
+                {
+                     status = "Đã thanh toán";
+                     isPaid = 1;
+                }
+                else
+                    status = "Chưa thanh toán";
+                btn.Text = item.Name + Environment.NewLine + item.Status + Environment.NewLine + Environment.NewLine + status;
                 btn.Click += btn_Click;
                 btn.Tag = item;
                 switch (item.Status)
                 {
                     case "Trống":
-                        btn.BackColor = Color.Aqua;
+                        btn.FlatStyle = FlatStyle.Flat;
+                        btn.FlatAppearance.BorderColor = Color.Green;
+                        btn.FlatAppearance.BorderSize = 1;
+                        btn.ForeColor = Color.Green;
                         break;
                     default:
-                        btn.BackColor = Color.LightPink;
+                        btn.FlatStyle = FlatStyle.Flat;
+                        btn.FlatAppearance.BorderColor = Color.Red;
+                        btn.FlatAppearance.BorderSize = 1;
+                        btn.ForeColor = Color.Red;
                         break;
                 }
                 flpTable.Controls.Add(btn);
             }
         }
 
-        void ShowBill(int id)
+        public void ShowBill_2(int id)
         {
             listView1.Items.Clear();
             List<QLTraSua.DTO.Menu> listBillInfor = MenuDAO.Instance.GetListMenuByTable(id);
@@ -174,10 +188,9 @@ namespace QLTraSua
             int tableID = ((sender as Button).Tag as Table).ID;
             global.TableID = tableID;
             fOrder f = new fOrder();
-            this.Hide();
             f.ShowDialog();
             this.Show();
-            //ShowBill(tableID);
+            ShowBill_2(tableID);
         }
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -250,9 +263,53 @@ namespace QLTraSua
 
         }
 
-        private void labelTTNV_Click(object sender, EventArgs e)
+        private void label9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void update_tableNull(object sender, EventArgs e)
+        {
+            int id = 0;
+            ComboBox cb = sender as ComboBox;
+            if (cb.SelectedItem == null)
+            {
+                return;
+            }
+            Table selected = cb.SelectedItem as Table;
+            id = selected.ID;
+            DataProvider.Instance.ExecuteNonQuery("UPDATE dbo.TABLE_DRINK SET STATUS = N'Trống' WHERE ID_TABLE = "+id);
+        }
+
+        private void fTable_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveNewPassword_Click(object sender, EventArgs e)
+        {
+            string currentPassword = tb_passwordCurrent.Text;
+            string newPassword = tb_passwordNew.Text;
+            string newPassword_2 = tb_passwordNew_2.Text;
+
+            if (changePassword(currentPassword, newPassword, newPassword_2))
+            {
+                MessageBox.Show("Thay đổi mật khẩu thành công", "Thành công");
+            }
+            else
+            {
+                MessageBox.Show("Thay đổi mật khẩu thất bại", "Thất bại");
+            }
         }
 
         void AddAccount(string username, int permission, string name_user, string email, int phone)
@@ -333,23 +390,7 @@ namespace QLTraSua
             }
         }
 
-        private void saveNewPassword_Click(object sender, EventArgs e)
-        {
-            string currentPassword = tb_passwordCurrent.Text;
-            string newPassword = tb_passwordNew.Text;
-            string newPassword_2 = tb_passwordNew_2.Text;
-
-            if (changePassword(currentPassword, newPassword, newPassword_2))
-            {
-                MessageBox.Show("Thay đổi mật khẩu thành công", "Thành công");
-            }
-            else
-            {
-                MessageBox.Show("Thay đổi mật khẩu thất bại", "Thất bại");
-            }
-        }
-
-        private void buttonAdminSave_Click_1(object sender, EventArgs e)
+        private void buttonAdminSave_Click(object sender, EventArgs e)
         {
             string username = tbAdminUsername.Text;
             int permission = (cbPermission.Text == "0") ? 0 : 1;
@@ -360,13 +401,13 @@ namespace QLTraSua
             EditAccount(username, permission, name_user, email, phone);
         }
 
-        private void buttonAdminDelete_Click_1(object sender, EventArgs e)
+        private void buttonAdminDelete_Click(object sender, EventArgs e)
         {
             string username = tbAdminUsername.Text;
             DeleteAccount(username);
         }
 
-        private void buttonAdminAdd_Click_1(object sender, EventArgs e)
+        private void buttonAdminAdd_Click(object sender, EventArgs e)
         {
             string username = tbAdminUsername.Text;
             int permission = (cbPermission.Text == "0") ? 0 : 1;
@@ -377,7 +418,7 @@ namespace QLTraSua
             AddAccount(username, permission, name_user, email, phone);
         }
 
-        private void buttonAdminReset_Click_1(object sender, EventArgs e)
+        private void buttonAdminReset_Click(object sender, EventArgs e)
         {
             string username = tbAdminUsername.Text;
             ResetPassword(username);

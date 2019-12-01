@@ -25,7 +25,7 @@ namespace QLTraSua.DAO
         {
             List<Menu> listMenu = new List<Menu>();
 
-            string query = "SELECT f.NAME_DRINK, bi.QUANTITY, f.PRICE, f.PRICE*bi.QUANTITY AS totalPrice FROM dbo.DETAIL_BILL AS bi, dbo.BILL AS b, dbo.DRINK AS f WHERE bi.ID_BILL = b.ID_BILL AND bi.ID_DRINK = f.ID_DRINK AND b.IS_PAID = 0 AND b.ID_TABLE = " + id;
+            string query = "SELECT f.NAME_DRINK, bi.QUANTITY, f.PRICE, f.PRICE*bi.QUANTITY AS totalPrice FROM dbo.DETAIL_BILL AS bi, dbo.BILL AS b, dbo.DRINK AS f, dbo.TABLE_DRINK AS d WHERE d.ID_TABLE= b.ID_TABLE AND bi.ID_BILL = b.ID_BILL AND bi.ID_DRINK = f.ID_DRINK AND b.IS_PAID=0 AND b.ID_TABLE = " + id;
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
             foreach (DataRow item in data.Rows)

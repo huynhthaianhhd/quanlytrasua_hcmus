@@ -31,13 +31,17 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.grandTotal = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.cbUp = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.grandTotal = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -64,8 +68,6 @@
             this.tb_passwordCurrent = new System.Windows.Forms.TextBox();
             this.passwordCurrent = new System.Windows.Forms.Label();
             this.tabPageAdmin = new System.Windows.Forms.TabPage();
-            this.dataListNV = new System.Windows.Forms.DataGridView();
-            this.tabDangXuat = new System.Windows.Forms.TabPage();
             this.panelAdminEdit = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonAdminReset = new System.Windows.Forms.Button();
@@ -83,19 +85,22 @@
             this.labelAdminName = new System.Windows.Forms.Label();
             this.labelAdminPhone = new System.Windows.Forms.Label();
             this.labelAdminEmail = new System.Windows.Forms.Label();
+            this.dataListNV = new System.Windows.Forms.DataGridView();
+            this.tabDangXuat = new System.Windows.Forms.TabPage();
             this.fTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fTableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabDetailNV.SuspendLayout();
             this.ThongTinChung.SuspendLayout();
             this.MatKhau.SuspendLayout();
             this.tabPageAdmin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataListNV)).BeginInit();
             this.panelAdminEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbAdminPhone)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataListNV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fTableBindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -114,9 +119,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.grandTotal);
             this.tabPage1.Controls.Add(this.flowLayoutPanel1);
-            this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.flpTable);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
@@ -126,23 +129,16 @@
             this.tabPage1.Text = "Bàn";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // grandTotal
-            // 
-            this.grandTotal.AutoSize = true;
-            this.grandTotal.Location = new System.Drawing.Point(653, 395);
-            this.grandTotal.Name = "grandTotal";
-            this.grandTotal.Size = new System.Drawing.Size(15, 16);
-            this.grandTotal.TabIndex = 2;
-            this.grandTotal.Text = "0";
-            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.listView1);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(556, 3);
+            this.flowLayoutPanel1.Controls.Add(this.panel1);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(765, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(697, 365);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(488, 646);
             this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // listView1
             // 
@@ -154,7 +150,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(3, 3);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(670, 332);
+            this.listView1.Size = new System.Drawing.Size(480, 495);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -179,21 +175,72 @@
             this.columnHeader4.Text = "Thành tiền";
             this.columnHeader4.Width = 91;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.cbUp);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.grandTotal);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Location = new System.Drawing.Point(3, 504);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(485, 83);
+            this.panel1.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.button1.Location = new System.Drawing.Point(299, 42);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "OK";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // cbUp
+            // 
+            this.cbUp.FormattingEnabled = true;
+            this.cbUp.Location = new System.Drawing.Point(147, 41);
+            this.cbUp.Name = "cbUp";
+            this.cbUp.Size = new System.Drawing.Size(121, 24);
+            this.cbUp.TabIndex = 3;
+            this.cbUp.SelectedIndexChanged += new System.EventHandler(this.update_tableNull);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 48);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(126, 16);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Cập nhật bàn trống :";
+            // 
+            // grandTotal
+            // 
+            this.grandTotal.AutoSize = true;
+            this.grandTotal.Location = new System.Drawing.Point(101, 0);
+            this.grandTotal.Name = "grandTotal";
+            this.grandTotal.Size = new System.Drawing.Size(15, 16);
+            this.grandTotal.TabIndex = 1;
+            this.grandTotal.Text = "0";
+            this.grandTotal.Click += new System.EventHandler(this.label10_Click);
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(575, 395);
+            this.label9.Location = new System.Drawing.Point(3, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(67, 16);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Tổng tiền:";
+            this.label9.Size = new System.Drawing.Size(87, 16);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "TỔNG TIỀN :";
             // 
             // flpTable
             // 
+            this.flpTable.BackColor = System.Drawing.Color.White;
             this.flpTable.Dock = System.Windows.Forms.DockStyle.Left;
             this.flpTable.Location = new System.Drawing.Point(3, 3);
             this.flpTable.Name = "flpTable";
-            this.flpTable.Size = new System.Drawing.Size(553, 646);
+            this.flpTable.Size = new System.Drawing.Size(775, 646);
             this.flpTable.TabIndex = 0;
             // 
             // tabPage3
@@ -236,7 +283,7 @@
             this.tabDetailNV.SelectedIndex = 0;
             this.tabDetailNV.Size = new System.Drawing.Size(1250, 646);
             this.tabDetailNV.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.tabDetailNV.TabIndex = 1;
+            this.tabDetailNV.TabIndex = 2;
             // 
             // ThongTinChung
             // 
@@ -475,28 +522,6 @@
             this.tabPageAdmin.Text = "Quản lý tài khoản";
             this.tabPageAdmin.UseVisualStyleBackColor = true;
             // 
-            // dataListNV
-            // 
-            this.dataListNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataListNV.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dataListNV.Location = new System.Drawing.Point(3, 3);
-            this.dataListNV.Name = "dataListNV";
-            this.dataListNV.RowTemplate.Height = 24;
-            this.dataListNV.Size = new System.Drawing.Size(742, 632);
-            this.dataListNV.TabIndex = 0;
-            // 
-            // tabDangXuat
-            // 
-            this.tabDangXuat.BackColor = System.Drawing.Color.Transparent;
-            this.tabDangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabDangXuat.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tabDangXuat.Location = new System.Drawing.Point(104, 4);
-            this.tabDangXuat.Name = "tabDangXuat";
-            this.tabDangXuat.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDangXuat.Size = new System.Drawing.Size(1142, 638);
-            this.tabDangXuat.TabIndex = 2;
-            this.tabDangXuat.Text = "Đăng xuất";
-            // 
             // panelAdminEdit
             // 
             this.panelAdminEdit.Controls.Add(this.label2);
@@ -544,7 +569,7 @@
             this.buttonAdminReset.TabIndex = 47;
             this.buttonAdminReset.Text = "Reset Password";
             this.buttonAdminReset.UseVisualStyleBackColor = false;
-            this.buttonAdminReset.Click += new System.EventHandler(this.buttonAdminReset_Click_1);
+            this.buttonAdminReset.Click += new System.EventHandler(this.buttonAdminReset_Click);
             // 
             // label1
             // 
@@ -567,7 +592,7 @@
             this.buttonAdminSave.TabIndex = 45;
             this.buttonAdminSave.Text = "Cập nhật";
             this.buttonAdminSave.UseVisualStyleBackColor = true;
-            this.buttonAdminSave.Click += new System.EventHandler(this.buttonAdminSave_Click_1);
+            this.buttonAdminSave.Click += new System.EventHandler(this.buttonAdminSave_Click);
             // 
             // tbAdminPhone
             // 
@@ -614,7 +639,7 @@
             this.buttonAdminAdd.TabIndex = 33;
             this.buttonAdminAdd.Text = "Thêm";
             this.buttonAdminAdd.UseVisualStyleBackColor = true;
-            this.buttonAdminAdd.Click += new System.EventHandler(this.buttonAdminAdd_Click_1);
+            this.buttonAdminAdd.Click += new System.EventHandler(this.buttonAdminAdd_Click);
             // 
             // buttonAdminDelete
             // 
@@ -626,7 +651,7 @@
             this.buttonAdminDelete.TabIndex = 34;
             this.buttonAdminDelete.Text = "Xóa";
             this.buttonAdminDelete.UseVisualStyleBackColor = true;
-            this.buttonAdminDelete.Click += new System.EventHandler(this.buttonAdminDelete_Click_1);
+            this.buttonAdminDelete.Click += new System.EventHandler(this.buttonAdminDelete_Click);
             // 
             // tbAdminEmail
             // 
@@ -689,6 +714,28 @@
             this.labelAdminEmail.TabIndex = 38;
             this.labelAdminEmail.Text = "Email";
             // 
+            // dataListNV
+            // 
+            this.dataListNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataListNV.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dataListNV.Location = new System.Drawing.Point(3, 3);
+            this.dataListNV.Name = "dataListNV";
+            this.dataListNV.RowTemplate.Height = 24;
+            this.dataListNV.Size = new System.Drawing.Size(742, 632);
+            this.dataListNV.TabIndex = 0;
+            // 
+            // tabDangXuat
+            // 
+            this.tabDangXuat.BackColor = System.Drawing.Color.Transparent;
+            this.tabDangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabDangXuat.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tabDangXuat.Location = new System.Drawing.Point(104, 4);
+            this.tabDangXuat.Name = "tabDangXuat";
+            this.tabDangXuat.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDangXuat.Size = new System.Drawing.Size(1142, 638);
+            this.tabDangXuat.TabIndex = 2;
+            this.tabDangXuat.Text = "Đăng xuất";
+            // 
             // fTableBindingSource
             // 
             this.fTableBindingSource.DataSource = typeof(QLTraSua.fTable);
@@ -706,10 +753,12 @@
             this.Name = "fTable";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
+            this.Load += new System.EventHandler(this.fTable_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabDetailNV.ResumeLayout(false);
             this.ThongTinChung.ResumeLayout(false);
@@ -717,10 +766,10 @@
             this.MatKhau.ResumeLayout(false);
             this.MatKhau.PerformLayout();
             this.tabPageAdmin.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataListNV)).EndInit();
             this.panelAdminEdit.ResumeLayout(false);
             this.panelAdminEdit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbAdminPhone)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataListNV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fTableBindingSource1)).EndInit();
             this.ResumeLayout(false);
@@ -742,8 +791,12 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label grandTotal;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cbUp;
+        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TabControl tabDetailNV;
         private System.Windows.Forms.TabPage ThongTinChung;
         private System.Windows.Forms.Label nv_permission;
@@ -766,8 +819,6 @@
         private System.Windows.Forms.TextBox tb_passwordCurrent;
         private System.Windows.Forms.Label passwordCurrent;
         private System.Windows.Forms.TabPage tabPageAdmin;
-        private System.Windows.Forms.DataGridView dataListNV;
-        private System.Windows.Forms.TabPage tabDangXuat;
         private System.Windows.Forms.Panel panelAdminEdit;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonAdminReset;
@@ -785,5 +836,7 @@
         private System.Windows.Forms.Label labelAdminName;
         private System.Windows.Forms.Label labelAdminPhone;
         private System.Windows.Forms.Label labelAdminEmail;
+        private System.Windows.Forms.DataGridView dataListNV;
+        private System.Windows.Forms.TabPage tabDangXuat;
     }
 }

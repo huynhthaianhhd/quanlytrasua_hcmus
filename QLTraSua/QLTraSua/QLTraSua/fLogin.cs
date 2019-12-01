@@ -56,6 +56,10 @@ namespace QLTraSua
             {
                 global.GetSetUsername = userName;
                 global.GetSetPassword = passWord;
+
+
+
+
                 fTable f = new fTable();
                 this.Hide();
                 f.ShowDialog();
@@ -82,10 +86,10 @@ namespace QLTraSua
 
         private void fLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Bạn có thật sự muốn thoát chương trình?","Thông báo",MessageBoxButtons.OKCancel)!= System.Windows.Forms.DialogResult.OK)
-            {
-                e.Cancel=true;
-            }
+            //if (MessageBox.Show("Bạn có thật sự muốn thoát chương trình?","Thông báo",MessageBoxButtons.OKCancel)!= System.Windows.Forms.DialogResult.OK)
+            //{
+            //    e.Cancel=true;
+            //}
         }
 
         private void txbUsername_TextChanged(object sender, EventArgs e)

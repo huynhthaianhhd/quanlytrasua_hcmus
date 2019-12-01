@@ -36,10 +36,40 @@ namespace QLTraSua.DAO
                 Bill bill = new Bill(data.Rows[0]);
                 return bill.ID;
             }
-
             return -1;
         }
 
-       
+        public void InsertBill(int id, int isTakeaway)
+        {
+            DataProvider.Instance.ExecuteNonQuery("US_InsertBill @idTable", new object[] { id});
+        }
+
+        public int GetMaxIDBill()
+        {
+            try
+            {
+                return (int)DataProvider.Instance.ExecuteScalar("SELECT MAX(ID_BILL) FROM dbo.BILL");
+            }
+            catch
+            {
+                return 1;
+            }
+        }
+        public int GetBillByTableID(int id)
+        {
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.BILL WHERE ID_TABLE = " + id);
+
+            if (data.Rows.Count > 0)
+            {
+                Bill bill = new Bill(data.Rows[0]);
+                return bill.Status;
+            }
+            return 0;
+        }
+        public void checkOut(int id, float totalPrice)
+        {
+            string query = "UPDATE dbo.BILL SET IS_PAID = 1, " + " TOTAL_PRICE = " + totalPrice + " WHERE ID_BILL = " + id;
+            DataProvider.Instance.ExecuteNonQuery(query);
+        }
     }
 }

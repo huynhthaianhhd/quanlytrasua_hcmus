@@ -26,7 +26,7 @@ namespace QLTraSua.DAO
         {
             List<Food> list = new List<Food>();
 
-            string query = "SELECT * FROM DRINK WHERE ID_TYPE = " + id;
+            string query = "SELECT * FROM dbo.DRINK WHERE ID_TYPE = " + id;
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
@@ -43,7 +43,7 @@ namespace QLTraSua.DAO
         {
             List<Food> list = new List<Food>();
 
-            string query = "SELECT * FROM DRINK";
+            string query = "SELECT * FROM dbo.DRINK";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
@@ -54,6 +54,18 @@ namespace QLTraSua.DAO
             }
 
             return list;
+        }
+
+        public Food GetFoodByName(string name)
+        {
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.DRINK WHERE NAME_DRINK = N'"+ name +"'");
+
+            if (data.Rows.Count > 0)
+            {
+                Food food = new Food(data.Rows[0]);
+                return food;
+            }
+            return null;
         }
 
        
