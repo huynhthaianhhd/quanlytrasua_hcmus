@@ -172,7 +172,6 @@ namespace QLTraSua
                     lsvBill.Update();
                     grandPrice.Text = (Convert.ToInt32(grandPrice.Text) + global.CountDrink * temp.Price).ToString();
                 }
-                
             }
         }
 
@@ -255,7 +254,6 @@ namespace QLTraSua
                         (System.Windows.Forms.Application.OpenForms["fTable"] as fTable).LoadTable(-1);
                     }
                     this.Close();
-
                 }
             }
         }

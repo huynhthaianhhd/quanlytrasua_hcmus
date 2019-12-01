@@ -189,7 +189,7 @@ namespace QLTraSua
                 }
                 else
                     status = "Chưa thanh toán";
-                if (empty_table_id != -1 || firstRun == true)
+                if (empty_table_id != -1 || item.Status == "Trống")
                 {
                     status = "Chưa thanh toán";
                 }
@@ -209,7 +209,16 @@ namespace QLTraSua
                         btn.FlatAppearance.BorderColor = Color.Red;
                         btn.FlatAppearance.BorderSize = 1;
                         btn.ForeColor = Color.Red;
+
                         break;
+                }
+                if (item.Status == "Đã có người" && status == "Đã thanh toán")
+                {
+                    btn.Enabled = false;
+                }
+                else
+                {
+                    btn.Enabled = true;
                 }
                 flpTable.Controls.Add(btn);
             }
