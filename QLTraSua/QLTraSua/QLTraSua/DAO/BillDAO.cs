@@ -66,6 +66,14 @@ namespace QLTraSua.DAO
             }
             return 0;
         }
+
+        public bool UpdateIsPaidBillByTableID(int id)
+        {
+            string query = string.Format("UPDATE dbo.BILL SET IS_PAID = N'0' WHERE ID_TABLE = N'{0}'", id);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
         public void checkOut(int id, float totalPrice)
         {
             string query = "UPDATE dbo.BILL SET IS_PAID = 1, " + " TOTAL_PRICE = " + totalPrice + " WHERE ID_BILL = " + id;

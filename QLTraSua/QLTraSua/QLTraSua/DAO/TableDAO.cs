@@ -25,7 +25,7 @@ namespace QLTraSua.DAO
         private TableDAO() { }
 
 
-        public List<Table> LoadTableList()
+        public List<Table> LoadTableList(int empty_table_id)
         {
             List<Table> tableList = new List<Table>();
 
@@ -34,10 +34,19 @@ namespace QLTraSua.DAO
             foreach (DataRow item in data.Rows)
             {
                 Table table = new Table(item);
+                if (table.ID == empty_table_id)
+                {
+                    table.Status = "Trống";
+                }
                 tableList.Add(table);
             }
 
             return tableList;
+        }
+        public bool updateEmptyTable(int id)
+        {
+            int result = DataProvider.Instance.ExecuteNonQuery("UPDATE dbo.TABLE_DRINK SET STATUS = N'Trống' WHERE ID_TABLE = " + id);
+            return result > 0;
         }
     }
 }

@@ -17,6 +17,7 @@ namespace QLTraSua
     {
         BindingSource accountList = new BindingSource();
         int isPaid = 0;
+        bool firstRun = true;
 
         public fTable()
         {
@@ -26,13 +27,26 @@ namespace QLTraSua
 
         void LoadAll()
         {
-            LoadTable();
+            LoadTable(-1);
+            firstRun = false;
             tabDetailNV.DrawItem += new DrawItemEventHandler(tabDetailNV_DrawItem);
+            tabIncome.DrawItem += new DrawItemEventHandler(tabIncome_DrawItem);
             tabDetailNV.SelectedIndexChanged += new EventHandler(Tabs_SelectedIndexChanged);
             loadNhanVien();
             loadUpdate();
             LoadAccount();
             AddAccountBinding();
+            LoadTotalIncome();
+        }
+
+        void LoadTotalIncome()
+        {
+            lbTongTien.Text = IncomeDAO.Instance.GetTotalIncome() + " đồng";
+            lbSoLuongDon.Text = IncomeDAO.Instance.GetCountTotal() + " đơn";
+            lbTakeAway.Text = IncomeDAO.Instance.GetTakeAwayIncome() + " đồng";
+            lbTakeAwayCount.Text = IncomeDAO.Instance.GetCountTakeAway() + " đơn";
+            lbTable.Text = IncomeDAO.Instance.GetNotTakeAwayIncome() + " đồng";
+            lbTableCount.Text = IncomeDAO.Instance.GetCountNotTakeAway() + " đơn";
         }
 
         void LoadAccount()
@@ -53,10 +67,9 @@ namespace QLTraSua
 
         void loadUpdate()
         {
-            List<Table> listTABLE = TableDAO.Instance.LoadTableList();
+            List<Table> listTABLE = TableDAO.Instance.LoadTableList(-1);
             cbUp.DataSource = listTABLE;
             cbUp.DisplayMember = "Name";
-
         }
         private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -122,16 +135,48 @@ namespace QLTraSua
             g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
         }
 
+        private void tabIncome_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Brush _textBrush;
+
+            // Get the item from the collection.
+            TabPage _tabPage = tabIncome.TabPages[e.Index];
+
+            // Get the real bounds for the tab rectangle.
+            Rectangle _tabBounds = tabIncome.GetTabRect(e.Index);
+
+            if (e.State == DrawItemState.Selected)
+            {
+
+                // Draw a different background color, and don't paint a focus rectangle.
+                _textBrush = new SolidBrush(Color.PaleGreen);
+            }
+            else
+            {
+                _textBrush = new System.Drawing.SolidBrush(e.ForeColor);
+                e.DrawBackground();
+            }
+
+            // Use our own font.
+            Font _tabFont = new Font("Arial", 10.0f, FontStyle.Bold, GraphicsUnit.Pixel);
+
+            // Draw string. Center the text.
+            StringFormat _stringFlags = new StringFormat();
+            _stringFlags.Alignment = StringAlignment.Center;
+            _stringFlags.LineAlignment = StringAlignment.Center;
+            g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
+        }
 
         private bool changePassword(string currentPassword, string newPassword, string newPassword_2)
         {
             return UserDAO.Instance.ChangePassword(currentPassword, newPassword, newPassword_2);
         }
-        public void LoadTable()
+        public void LoadTable(int empty_table_id)
         {
             flpTable.Controls.Clear();
 
-            List<Table> tableList = TableDAO.Instance.LoadTableList();
+            List<Table> tableList = TableDAO.Instance.LoadTableList(empty_table_id);
 
             foreach (Table item in tableList)
             {
@@ -139,11 +184,15 @@ namespace QLTraSua
                 string status;
                 if (BillDAO.Instance.GetBillByTableID(item.ID) == 1)
                 {
-                     status = "Đã thanh toán";
-                     isPaid = 1;
+                    status = "Đã thanh toán";
+                    isPaid = 1;
                 }
                 else
                     status = "Chưa thanh toán";
+                if (empty_table_id != -1 || firstRun == true)
+                {
+                    status = "Chưa thanh toán";
+                }
                 btn.Text = item.Name + Environment.NewLine + item.Status + Environment.NewLine + Environment.NewLine + status;
                 btn.Click += btn_Click;
                 btn.Tag = item;
@@ -280,15 +329,7 @@ namespace QLTraSua
 
         private void update_tableNull(object sender, EventArgs e)
         {
-            int id = 0;
-            ComboBox cb = sender as ComboBox;
-            if (cb.SelectedItem == null)
-            {
-                return;
-            }
-            Table selected = cb.SelectedItem as Table;
-            id = selected.ID;
-            DataProvider.Instance.ExecuteNonQuery("UPDATE dbo.TABLE_DRINK SET STATUS = N'Trống' WHERE ID_TABLE = "+id);
+
         }
 
         private void fTable_Load(object sender, EventArgs e)
@@ -422,6 +463,31 @@ namespace QLTraSua
         {
             string username = tbAdminUsername.Text;
             ResetPassword(username);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+            if (cbUp.SelectedItem == null)
+            {
+                return;
+            }
+            Table selected = cbUp.SelectedItem as Table;
+            id = selected.ID;
+            if (TableDAO.Instance.updateEmptyTable(id))
+            {
+                MessageBox.Show("Cập nhật bàn trống thành công");
+                LoadTable(id);
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật bàn trống thất bại");
+            }
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

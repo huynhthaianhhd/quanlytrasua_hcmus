@@ -62,3 +62,15 @@ F:\USER\Downloads\QLTraSua\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.Propert
 F:\USER\Downloads\QLTraSua\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.csproj.GenerateResource.cache
 F:\USER\Downloads\QLTraSua\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.exe
 F:\USER\Downloads\QLTraSua\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.pdb
+F:\USER\Downloads\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\bin\Debug\QLTraSua.exe.config
+F:\USER\Downloads\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\bin\Debug\QLTraSua.exe
+F:\USER\Downloads\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\bin\Debug\QLTraSua.pdb
+F:\USER\Downloads\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.csprojAssemblyReference.cache
+F:\USER\Downloads\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.fLogin.resources
+F:\USER\Downloads\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.fOrder.resources
+F:\USER\Downloads\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.fPopupOrder.resources
+F:\USER\Downloads\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.fTable.resources
+F:\USER\Downloads\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.Properties.Resources.resources
+F:\USER\Downloads\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.csproj.GenerateResource.cache
+F:\USER\Downloads\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.exe
+F:\USER\Downloads\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.pdb

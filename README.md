@@ -1,6 +1,6 @@
 # quanlytrasua_hcmus
 
-### Trước khi sử dụng, hãy conenct Database:
+### Trước khi sử dụng, hãy conenct Database và chạy SQL
 - Bước 1. Vào Tools --> Connect to DataBase
 - Bước 2. Điền các thông số:
 ```

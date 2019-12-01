@@ -203,7 +203,7 @@ namespace QLTraSua
             ShowBill(tableID);
             if (System.Windows.Forms.Application.OpenForms["fTable"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["fTable"] as fTable).LoadTable();
+                (System.Windows.Forms.Application.OpenForms["fTable"] as fTable).LoadTable(-1);
                 (System.Windows.Forms.Application.OpenForms["fTable"] as fTable).ShowBill_2(tableID);
             }
             this.Close();
@@ -252,7 +252,7 @@ namespace QLTraSua
 
                     if (System.Windows.Forms.Application.OpenForms["fTable"] != null)
                     {
-                        (System.Windows.Forms.Application.OpenForms["fTable"] as fTable).LoadTable();
+                        (System.Windows.Forms.Application.OpenForms["fTable"] as fTable).LoadTable(-1);
                     }
                     this.Close();
 
