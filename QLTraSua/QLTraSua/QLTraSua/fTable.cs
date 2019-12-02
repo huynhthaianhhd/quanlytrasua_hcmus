@@ -39,7 +39,7 @@ namespace QLTraSua
             LoadTotalIncome();
         }
 
-        void LoadTotalIncome()
+        public void LoadTotalIncome()
         {
             lbTongTien.Text = IncomeDAO.Instance.GetTotalIncome() + " đồng";
             lbSoLuongDon.Text = IncomeDAO.Instance.GetCountTotal() + " đơn";
@@ -68,6 +68,7 @@ namespace QLTraSua
         void loadUpdate()
         {
             List<Table> listTABLE = TableDAO.Instance.LoadTableList(-1);
+            listTABLE.RemoveAt(0);
             cbUp.DataSource = listTABLE;
             cbUp.DisplayMember = "Name";
         }
@@ -195,6 +196,7 @@ namespace QLTraSua
                 }
                 btn.Text = item.Name + Environment.NewLine + item.Status + Environment.NewLine + Environment.NewLine + status;
                 btn.Click += btn_Click;
+                btn.MouseHover += btn_MouseHover;
                 btn.Tag = item;
                 switch (item.Status)
                 {
@@ -224,6 +226,12 @@ namespace QLTraSua
             }
         }
 
+        void btn_MouseHover(object sender, EventArgs e)
+        {
+            int tableID = ((sender as Button).Tag as Table).ID;
+            ShowBill_2(tableID);
+        }
+
         public void ShowBill_2(int id)
         {
             listView1.Items.Clear();
@@ -248,7 +256,6 @@ namespace QLTraSua
             fOrder f = new fOrder();
             f.ShowDialog();
             this.Show();
-            ShowBill_2(tableID);
         }
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -483,15 +490,24 @@ namespace QLTraSua
             }
             Table selected = cbUp.SelectedItem as Table;
             id = selected.ID;
-            if (TableDAO.Instance.updateEmptyTable(id))
+            int isPaid = BillDAO.Instance.GetBillByTableID(id);
+            if (isPaid == 0 && selected.Status =="Đã có người")
             {
-                MessageBox.Show("Cập nhật bàn trống thành công");
-                LoadTable(id);
+                MessageBox.Show("Không thể cập nhật vì chưa thanh toán");
             }
             else
             {
-                MessageBox.Show("Cập nhật bàn trống thất bại");
+                if (TableDAO.Instance.updateEmptyTable(id))
+                {
+                    MessageBox.Show("Cập nhật bàn trống thành công");
+                    LoadTable(id);
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật bàn trống thất bại");
+                }
             }
+            
         }
 
         private void tabPage2_Click(object sender, EventArgs e)

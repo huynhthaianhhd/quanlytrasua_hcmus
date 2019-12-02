@@ -10,18 +10,49 @@ namespace QLTraSua.DTO
     public class Account
     {
         private string _username;
+
+        public string Username
+        {
+            get { return _username; }
+            set { _username = value; }
+        }
         private string _password;
+
+        public string Password
+        {
+            get { return _password; }
+            set { _password = value; }
+        }
         private int _permission;
+
+        public int Permission
+        {
+            get { return _permission; }
+            set { _permission = value; }
+        }
         private string _name_user;
+
+        public string Name_user
+        {
+            get { return _name_user; }
+            set { _name_user = value; }
+        }
         private string _email;
+
+        public string Email
+        {
+            get { return _email; }
+            set { _email = value; }
+        }
         private int _phone;
 
-        public string Username { get => _username; set => _username = value; }
-        public string Password { get => _password; set => _password = value; }
-        public int Permission { get => _permission; set => _permission = value; }
-        public string Name_user { get => _name_user; set => _name_user = value; }
-        public string Email { get => _email; set => _email = value; }
-        public int Phone { get => _phone; set => _phone = value; }
+        public int Phone
+        {
+            get { return _phone; }
+            set { _phone = value; }
+        }
+
+        
 
         public Account(string username, string password, int permission, string name_user, string email, int phone)
         {

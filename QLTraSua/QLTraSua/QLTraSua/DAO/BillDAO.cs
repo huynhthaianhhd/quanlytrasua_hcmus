@@ -41,7 +41,7 @@ namespace QLTraSua.DAO
 
         public void InsertBill(int id, int isTakeaway)
         {
-            DataProvider.Instance.ExecuteNonQuery("US_InsertBill @idTable", new object[] { id});
+            DataProvider.Instance.ExecuteNonQuery("US_InsertBill @idTable , @isTakeAway", new object[] { id , isTakeaway});
         }
 
         public int GetMaxIDBill()

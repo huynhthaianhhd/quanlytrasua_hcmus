@@ -97,10 +97,15 @@ VALUES  ( N'a1' , -- USERNAME - nvarchar(100)
         )
 
 
-DECLARE @i INT =1
-WHILE @i<=10
+INSERT dbo.TABLE_DRINK
+        ( NAME_TABLE, STATUS )
+VALUES  ( N'Mang đi', -- NAME_TABLE - nvarchar(100)
+          N'Trống'  -- STATUS - nvarchar(100)
+          )
+DECLARE @i INT =2
+WHILE @i<=11
 BEGIN
-	INSERT dbo.TABLE_DRINK ( NAME_TABLE, STATUS ) VALUES  ( N'' + CAST(@i AS NVARCHAR(100)), N'Trống' )
+	INSERT dbo.TABLE_DRINK ( NAME_TABLE, STATUS ) VALUES  ( N'Bàn ' + CAST(@i-1 AS NVARCHAR(100)), N'Trống' )
 	SET @i=@i +1
 END
 
@@ -301,7 +306,7 @@ EXEC dbo.US_getInfor @username = N'a1' -- nvarchar(100)
 GO 
 
 CREATE PROC US_InsertBill
-@idTable INT
+@idTable INT , @isTakeAway INT
 AS
 BEGIN
 	INSERT dbo.BILL
@@ -309,7 +314,7 @@ BEGIN
 	VALUES  ( GETDATE(), -- ORDERTIME - date
 	          @idTable, -- ID_TABLE - int
 	          0 , -- IS_PAID - int
-			  0
+			  @isTakeAway
 	          )
 END
 GO
@@ -366,9 +371,9 @@ GO
 DELETE FROM dbo.DETAIL_BILL
 DELETE FROM dbo.BILL
 
-
-SELECT * FROM dbo.BILL
-SELECT * FROM dbo.DETAIL_BILL
+	SELECT * FROM dbo.TABLE_DRINK
+	SELECT * FROM dbo.BILL
+	SELECT * FROM dbo.DETAIL_BILL
 SELECT * FROM dbo.BILL WHERE ID_TABLE = 1 AND IS_PAID = 0
 GO
 
@@ -377,3 +382,5 @@ FROM dbo.DETAIL_BILL AS bi, dbo.BILL AS b, dbo.DRINK AS f ,dbo.TABLE_DRINK AS d
 WHERE d.ID_TABLE= b.ID_TABLE AND bi.ID_BILL = b.ID_BILL AND bi.ID_DRINK = f.ID_DRINK AND d.STATUS = N'Trống' AND b.IS_PAID=0 AND b.ID_TABLE = 1 
 
 EXEC dbo.US_getTableList
+
+SELECT * FROM dbo.BILL WHERE ID_TABLE = 1

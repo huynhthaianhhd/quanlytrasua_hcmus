@@ -34,27 +34,27 @@ namespace QLTraSua.DAO
         }
         public string GetTakeAwayIncome()
         {
-            DataTable result = DataProvider.Instance.ExecuteQuery("SELECT SUM(TOTAL_PRICE) AS 'TOTAL_INCOME' FROM dbo.BILL WHERE IS_TAKEAWAY = N'1'");
+            DataTable result = DataProvider.Instance.ExecuteQuery("SELECT SUM(TOTAL_PRICE) AS 'TOTAL_INCOME' FROM dbo.BILL WHERE IS_TAKEAWAY = 1");
             string temp = result.Rows[0]["TOTAL_INCOME"].ToString();
             return (temp != "") ? temp : "0";
         }
 
         public string GetCountTakeAway()
         {
-            DataTable result = DataProvider.Instance.ExecuteQuery("SELECT COUNT(*) AS 'COUNT_TOTAL' FROM dbo.BILL WHERE IS_TAKEAWAY = N'1'");
+            DataTable result = DataProvider.Instance.ExecuteQuery("SELECT COUNT(*) AS 'COUNT_TOTAL' FROM dbo.BILL WHERE IS_TAKEAWAY = 1");
             string temp = result.Rows[0]["COUNT_TOTAL"].ToString();
             return (temp != "") ? temp : "0";
         }
         public string GetNotTakeAwayIncome()
         {
-            DataTable result = DataProvider.Instance.ExecuteQuery("SELECT SUM(TOTAL_PRICE) AS 'TOTAL_INCOME' FROM dbo.BILL WHERE IS_TAKEAWAY = N'0'");
+            DataTable result = DataProvider.Instance.ExecuteQuery("SELECT SUM(TOTAL_PRICE) AS 'TOTAL_INCOME' FROM dbo.BILL WHERE IS_TAKEAWAY = 0");
             string temp = result.Rows[0]["TOTAL_INCOME"].ToString();
             return (temp != "") ? temp : "0";
         }
 
         public string GetCountNotTakeAway()
         {
-            DataTable result = DataProvider.Instance.ExecuteQuery("SELECT COUNT(*) AS 'COUNT_TOTAL' FROM dbo.BILL WHERE IS_TAKEAWAY = N'0'");
+            DataTable result = DataProvider.Instance.ExecuteQuery("SELECT COUNT(*) AS 'COUNT_TOTAL' FROM dbo.BILL WHERE IS_TAKEAWAY = 0");
             string temp = result.Rows[0]["COUNT_TOTAL"].ToString();
             return (temp != "") ? temp : "0";
         }

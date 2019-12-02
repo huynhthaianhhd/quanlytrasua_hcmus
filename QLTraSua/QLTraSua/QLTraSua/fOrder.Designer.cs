@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lsvOrder = new System.Windows.Forms.ListView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.nameOrder = new System.Windows.Forms.Label();
             this.lsvBill = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -42,7 +43,6 @@
             this.grandPrice = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbType = new System.Windows.Forms.ComboBox();
-            this.nameOrder = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -73,6 +73,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(321, 510);
             this.panel2.TabIndex = 1;
+            // 
+            // nameOrder
+            // 
+            this.nameOrder.AutoSize = true;
+            this.nameOrder.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameOrder.ForeColor = System.Drawing.Color.Red;
+            this.nameOrder.Location = new System.Drawing.Point(3, 468);
+            this.nameOrder.Name = "nameOrder";
+            this.nameOrder.Size = new System.Drawing.Size(82, 24);
+            this.nameOrder.TabIndex = 1;
+            this.nameOrder.Text = "Mang đi";
+            this.nameOrder.Click += new System.EventHandler(this.nameOrder_Click);
             // 
             // lsvBill
             // 
@@ -121,9 +133,9 @@
             // 
             this.button2.BackColor = System.Drawing.Color.LimeGreen;
             this.button2.ForeColor = System.Drawing.Color.Cornsilk;
-            this.button2.Location = new System.Drawing.Point(200, 66);
+            this.button2.Location = new System.Drawing.Point(171, 48);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 43);
+            this.button2.Size = new System.Drawing.Size(119, 43);
             this.button2.TabIndex = 3;
             this.button2.Text = "THANH TOÁN";
             this.button2.UseVisualStyleBackColor = false;
@@ -133,7 +145,7 @@
             // 
             this.saveOrder.BackColor = System.Drawing.Color.LimeGreen;
             this.saveOrder.ForeColor = System.Drawing.Color.Cornsilk;
-            this.saveOrder.Location = new System.Drawing.Point(32, 66);
+            this.saveOrder.Location = new System.Drawing.Point(23, 48);
             this.saveOrder.Name = "saveOrder";
             this.saveOrder.Size = new System.Drawing.Size(111, 43);
             this.saveOrder.TabIndex = 2;
@@ -167,17 +179,6 @@
             this.cbType.Size = new System.Drawing.Size(200, 24);
             this.cbType.TabIndex = 3;
             this.cbType.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // nameOrder
-            // 
-            this.nameOrder.AutoSize = true;
-            this.nameOrder.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameOrder.ForeColor = System.Drawing.Color.Red;
-            this.nameOrder.Location = new System.Drawing.Point(3, 468);
-            this.nameOrder.Name = "nameOrder";
-            this.nameOrder.Size = new System.Drawing.Size(82, 24);
-            this.nameOrder.TabIndex = 1;
-            this.nameOrder.Text = "Mang đi";
             // 
             // fOrder
             // 

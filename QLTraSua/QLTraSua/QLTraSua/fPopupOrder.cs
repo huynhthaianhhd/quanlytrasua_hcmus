@@ -13,6 +13,7 @@ namespace QLTraSua
     public partial class fPopupOrder : Form
     {
         int count = 0;
+        int countOrder = 0;
         string name;
         public fPopupOrder()
         {
@@ -50,8 +51,7 @@ namespace QLTraSua
 
         private void popUpclosing(object sender, FormClosingEventArgs e)
         {
-            if (count == 0)
-                global.CountDrink = 0;
+            
         }
     }
 }

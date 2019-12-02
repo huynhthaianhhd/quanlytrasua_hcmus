@@ -23,8 +23,12 @@ namespace QLTraSua
             InitializeComponent();
             int tableID = global.TableID;
             string name;
-            if (tableID != 0) name = "Bàn " + tableID;
+            if (tableID != 1) name = "Bàn " + (tableID-1);
             else name = "Mang đi";
+            if (tableID == 1)
+                saveOrder.Visible = false;
+            else
+                saveOrder.Visible = true;
             ShowBill(tableID);
             LoadCategory();
             LoadFood();
@@ -130,7 +134,7 @@ namespace QLTraSua
             if (lsv.SelectedItems.Count>0)
             {
                 ListViewItem item = lsv.SelectedItems[0];
-
+                global.CountDrink = 0;
                 fPopupOrder f = new fPopupOrder();
                 f.PassName(item.Text.ToString());
                 f.ShowDialog();
@@ -179,7 +183,7 @@ namespace QLTraSua
         {
             int tableID = global.TableID;
             int isTakeAway = 0;
-            if (tableID != 0)
+            if (tableID != 1)
             {
                 isTakeAway = 0;
             }
@@ -190,7 +194,7 @@ namespace QLTraSua
                 int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(tableID);
                 if (idBill == -1)
                 {
-                    BillDAO.Instance.InsertBill(tableID,0);
+                    BillDAO.Instance.InsertBill(tableID,isTakeAway);
                     BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIDBill(), listFoodOrder[i].FoodID, listFoodOrder[i].FoodCount);
 
                 }
@@ -215,7 +219,7 @@ namespace QLTraSua
 
             //
             int isTakeAway = 0;
-            if (tableID != 0)
+            if (tableID != 1)
             {
                 isTakeAway = 0;
             }
@@ -248,14 +252,27 @@ namespace QLTraSua
                 if (MessageBox.Show(string.Format("Bạn có chắc thanh toán hóa đơn cho bàn {0}\nTổng tiền = {1}", name, totalPrice), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                 {
                     BillDAO.Instance.checkOut(idBill, (float)totalPrice);
-
+                    if (tableID == 1)
+                    {
+                        bool upTakeAway = TableDAO.Instance.updateEmptyTable(1);
+                        if (upTakeAway == false)
+                            MessageBox.Show("Error", "Thông báo");
+                    }
                     if (System.Windows.Forms.Application.OpenForms["fTable"] != null)
                     {
                         (System.Windows.Forms.Application.OpenForms["fTable"] as fTable).LoadTable(-1);
+                        (System.Windows.Forms.Application.OpenForms["fTable"] as fTable).LoadTotalIncome();
                     }
                     this.Close();
                 }
             }
+            // Neu Mang di tu dong cap nhat ban trong
+            
+        }
+
+        private void nameOrder_Click(object sender, EventArgs e)
+        {
+
         }
         
        
