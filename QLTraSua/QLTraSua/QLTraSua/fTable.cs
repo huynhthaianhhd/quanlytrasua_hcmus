@@ -659,21 +659,6 @@ namespace QLTraSua
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label30_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void label29_Click(object sender, EventArgs e)
         {
 
@@ -694,6 +679,19 @@ namespace QLTraSua
 
         }
 
+        private void tabGeneral_SelectedIndexChange(object sender, EventArgs e)
+        {
+            if (tabGeneral.SelectedIndex == 4)
+            {
+                List<string> nvDetail = UserDAO.Instance.LoadNhanVienDetail();
+
+                if (nvDetail[4] == "0")
+                {
+                    tabGeneral.SelectTab(tabBan);
+                    MessageBox.Show("Bạn không phải là admin", "Thông báo");
+                }
+            }
+        }
     }
 
 }
