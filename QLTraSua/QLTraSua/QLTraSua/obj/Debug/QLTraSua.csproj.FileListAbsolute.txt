@@ -98,3 +98,15 @@ C:\Users\WIN 10\Desktop\quanlytrasua_hcmus-master (3)\quanlytrasua_hcmus-master\
 C:\Users\WIN 10\Desktop\quanlytrasua_hcmus-master (3)\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.csproj.GenerateResource.Cache
 C:\Users\WIN 10\Desktop\quanlytrasua_hcmus-master (3)\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\bin\Debug\QLTraSua.exe
 C:\Users\WIN 10\Desktop\quanlytrasua_hcmus-master (3)\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\bin\Debug\QLTraSua.pdb
+E:\17CTT5\Nam3\Nhập môn CNPM\quanlytrasua_hcmus-master\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\bin\Debug\QLTraSua.exe.config
+E:\17CTT5\Nam3\Nhập môn CNPM\quanlytrasua_hcmus-master\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\bin\Debug\QLTraSua.exe
+E:\17CTT5\Nam3\Nhập môn CNPM\quanlytrasua_hcmus-master\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\bin\Debug\QLTraSua.pdb
+E:\17CTT5\Nam3\Nhập môn CNPM\quanlytrasua_hcmus-master\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.csprojAssemblyReference.cache
+E:\17CTT5\Nam3\Nhập môn CNPM\quanlytrasua_hcmus-master\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.fLogin.resources
+E:\17CTT5\Nam3\Nhập môn CNPM\quanlytrasua_hcmus-master\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.fOrder.resources
+E:\17CTT5\Nam3\Nhập môn CNPM\quanlytrasua_hcmus-master\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.fPopupOrder.resources
+E:\17CTT5\Nam3\Nhập môn CNPM\quanlytrasua_hcmus-master\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.fTable.resources
+E:\17CTT5\Nam3\Nhập môn CNPM\quanlytrasua_hcmus-master\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.Properties.Resources.resources
+E:\17CTT5\Nam3\Nhập môn CNPM\quanlytrasua_hcmus-master\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.csproj.GenerateResource.cache
+E:\17CTT5\Nam3\Nhập môn CNPM\quanlytrasua_hcmus-master\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.exe
+E:\17CTT5\Nam3\Nhập môn CNPM\quanlytrasua_hcmus-master\quanlytrasua_hcmus-master\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.pdb

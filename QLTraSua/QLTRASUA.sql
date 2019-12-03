@@ -1,4 +1,7 @@
-﻿CREATE DATABASE QUANLYTS
+﻿DROP DATABASE QUANLYTS
+GO
+
+CREATE DATABASE QUANLYTS
 GO
 
 USE QUANLYTS
@@ -96,6 +99,21 @@ VALUES  ( N'a1' , -- USERNAME - nvarchar(100)
           0  -- PHONE - int
         )
 
+INSERT dbo.USERS
+        ( USERNAME ,
+          PASSWORD ,
+          PERMISSION ,
+          NAME_USER ,
+          EMAIL ,
+          PHONE
+        )
+VALUES  ( N'admin' , -- USERNAME - nvarchar(100)
+          N'1' , -- PASSWORD - nvarchar(100)
+          1 , -- PERMISSION - int
+          N'admin' , -- NAME_USER - nvarchar(100)
+          N'123@mail' , -- EMAIL - nchar(50)
+          0123  -- PHONE - int
+        )
 
 INSERT dbo.TABLE_DRINK
         ( NAME_TABLE, STATUS )
@@ -384,3 +402,5 @@ WHERE d.ID_TABLE= b.ID_TABLE AND bi.ID_BILL = b.ID_BILL AND bi.ID_DRINK = f.ID_D
 EXEC dbo.US_getTableList
 
 SELECT * FROM dbo.BILL WHERE ID_TABLE = 1
+
+SELECT * FROM DRINK WHERE (ISDELETE = 0)

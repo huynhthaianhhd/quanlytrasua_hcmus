@@ -16,6 +16,7 @@ namespace QLTraSua
     public partial class fTable : Form
     {
         BindingSource accountList = new BindingSource();
+        BindingSource drinkList = new BindingSource();
         int isPaid = 0;
         bool firstRun = true;
 
@@ -37,6 +38,10 @@ namespace QLTraSua
             LoadAccount();
             AddAccountBinding();
             LoadTotalIncome();
+            //Drink
+            LoadDrink();
+            AddFoodBinding();
+            LoadCategoryToBox(cbDrinkCategory);
         }
 
         public void LoadTotalIncome()
@@ -55,15 +60,139 @@ namespace QLTraSua
             accountList.DataSource = AccountDAO.Instance.GetListAccount();
             tbAdminPhone.Controls[0].Visible = false;
         }
+
         void AddAccountBinding()
         {
             tbAdminUsername.DataBindings.Add(new Binding("Text", dataListNV.DataSource, "USERNAME", true, DataSourceUpdateMode.Never));
             tbAdminName.DataBindings.Add(new Binding("Text", dataListNV.DataSource, "NAME_USER", true, DataSourceUpdateMode.Never));
             tbAdminPhone.DataBindings.Add(new Binding("Value", dataListNV.DataSource, "PHONE", true, DataSourceUpdateMode.Never));
             tbAdminEmail.DataBindings.Add(new Binding("Text", dataListNV.DataSource, "EMAIL", true, DataSourceUpdateMode.Never));
-
             cbPermission.DataBindings.Add(new Binding("Text", dataListNV.DataSource, "PERMISSION", true, DataSourceUpdateMode.Never));
         }
+
+        //Drink & Category
+        void LoadDrink()
+        {
+            dataListDrink.DataSource = drinkList;
+            drinkList.DataSource = FoodDAO.Instance.GetListFood();
+        }
+
+        void AddFoodBinding()
+        {
+            tbIDDrink.DataBindings.Add(new Binding("Text", dataListDrink.DataSource, "ID", true, DataSourceUpdateMode.Never));
+            tbNameDrink.DataBindings.Add(new Binding("Text", dataListDrink.DataSource, "Name", true, DataSourceUpdateMode.Never));
+            nmPriceDrink.DataBindings.Add(new Binding("Value", dataListDrink.DataSource, "Price", true, DataSourceUpdateMode.Never));
+        }
+
+        void LoadCategoryToBox(ComboBox cb)
+        {
+            cb.DataSource = CategoryDAO.Instance.GetListCategory();
+            cb.DisplayMember = "Name";
+        }
+
+        private void tbIDDrink_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataListDrink.SelectedCells.Count > 0)
+                {
+                    int id = (int)dataListDrink.SelectedCells[0].OwningRow.Cells["CategoryID"].Value;
+
+                    Category category = CategoryDAO.Instance.GetCategoryByID(id);
+
+                    cbDrinkCategory.SelectedItem = category;
+
+                    int index = -1;
+                    int i = 0;
+                    foreach (Category item in cbDrinkCategory.Items)
+                    {
+                        if (item.ID == category.ID)
+                        {
+                            index = i;
+                            break;
+                        }
+                        i++;
+                    }
+                    cbDrinkCategory.SelectedIndex = index;
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        public List<Food> SearchDrinkByName(string name)
+        {
+            List<Food> listDrink = FoodDAO.Instance.SearchDrinkByName(name);
+            return listDrink;
+        }
+
+        //On Click
+        private void btnAddDrink_Click(object sender, EventArgs e)
+        {
+            string name = tbNameDrink.Text;
+            int categoryID = (cbDrinkCategory.SelectedItem as Category).ID;
+            float price = (float)nmPriceDrink.Value;
+
+            if (FoodDAO.Instance.InsertFood(name, categoryID, price))
+            {
+                MessageBox.Show("Thêm món thành công");
+                LoadDrink();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi rồi!");
+            }
+        }
+
+        private void btnEditDrink_Click(object sender, EventArgs e)
+        {
+            string name = tbNameDrink.Text;
+            int categoryID = (cbDrinkCategory.SelectedItem as Category).ID;
+            float price = (float)nmPriceDrink.Value;
+            int id = Convert.ToInt32(tbIDDrink.Text);
+
+            if (FoodDAO.Instance.UpdateFood(id, name, categoryID, price))
+            {
+                MessageBox.Show("Đã cập nhật thông tin món");
+                LoadDrink();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi rồi!");
+            }
+        }
+
+        private void btnDeleteDrink_Click(object sender, EventArgs e)
+        {
+            string name = tbNameDrink.Text;
+            int categoryID = (cbDrinkCategory.SelectedItem as Category).ID;
+            float price = (float)nmPriceDrink.Value;
+            int id = Convert.ToInt32(tbIDDrink.Text);
+
+            if (FoodDAO.Instance.DeleteFood(id))
+            {
+                MessageBox.Show("Đã xóa món");
+                LoadDrink();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi rồi!");
+            }
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            LoadDrink();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            drinkList.DataSource = SearchDrinkByName(tbSearchDrink.Text);
+        }
+
+        //End Drink & Category
 
         void loadUpdate()
         {
@@ -514,5 +643,57 @@ namespace QLTraSua
         {
 
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label30_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label29_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel13_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
+
 }
