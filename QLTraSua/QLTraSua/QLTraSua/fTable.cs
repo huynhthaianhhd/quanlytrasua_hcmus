@@ -17,6 +17,7 @@ namespace QLTraSua
     {
         BindingSource accountList = new BindingSource();
         BindingSource drinkList = new BindingSource();
+        BindingSource categoryList = new BindingSource();
         int isPaid = 0;
         bool firstRun = true;
 
@@ -31,6 +32,7 @@ namespace QLTraSua
             LoadTable(-1);
             firstRun = false;
             tabDetailNV.DrawItem += new DrawItemEventHandler(tabDetailNV_DrawItem);
+            tabAdminDetail.DrawItem += new DrawItemEventHandler(tabAdminDetail_DrawItem);
             tabIncome.DrawItem += new DrawItemEventHandler(tabIncome_DrawItem);
             tabDetailNV.SelectedIndexChanged += new EventHandler(Tabs_SelectedIndexChanged);
             loadNhanVien();
@@ -40,7 +42,9 @@ namespace QLTraSua
             LoadTotalIncome();
             //Drink
             LoadDrink();
+            LoadCategory();
             AddFoodBinding();
+            AddCategoryBinding();
             LoadCategoryToBox(cbDrinkCategory);
         }
 
@@ -77,11 +81,23 @@ namespace QLTraSua
             drinkList.DataSource = FoodDAO.Instance.GetListFood();
         }
 
+        void LoadCategory()
+        {
+            dataListCategory.DataSource = categoryList;
+            categoryList.DataSource = CategoryDAO.Instance.GetListCategory();
+        }
+
         void AddFoodBinding()
         {
             tbIDDrink.DataBindings.Add(new Binding("Text", dataListDrink.DataSource, "ID", true, DataSourceUpdateMode.Never));
             tbNameDrink.DataBindings.Add(new Binding("Text", dataListDrink.DataSource, "Name", true, DataSourceUpdateMode.Never));
             nmPriceDrink.DataBindings.Add(new Binding("Value", dataListDrink.DataSource, "Price", true, DataSourceUpdateMode.Never));
+        }
+
+        void AddCategoryBinding()
+        {
+            tbIDCategory.DataBindings.Add(new Binding("Text", dataListCategory.DataSource, "ID", true, DataSourceUpdateMode.Never));
+            tbNameCategory.DataBindings.Add(new Binding("Text", dataListCategory.DataSource, "Name", true, DataSourceUpdateMode.Never));
         }
 
         void LoadCategoryToBox(ComboBox cb)
@@ -128,7 +144,7 @@ namespace QLTraSua
             return listDrink;
         }
 
-        //On Click
+        //Drink OnClick
         private void btnAddDrink_Click(object sender, EventArgs e)
         {
             string name = tbNameDrink.Text;
@@ -192,6 +208,44 @@ namespace QLTraSua
             drinkList.DataSource = SearchDrinkByName(tbSearchDrink.Text);
         }
 
+        //Category OnClick
+
+        private void btnAddCategory_Click(object sender, EventArgs e)
+        {
+            string name = tbNameCategory.Text;
+
+            if (CategoryDAO.Instance.InsertCategory(name))
+            {
+                MessageBox.Show("Thêm danh mục thành công");
+                LoadDrink();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi rồi!");
+            }
+        }
+
+        private void btnEditCategory_Click(object sender, EventArgs e)
+        {
+            string name = tbNameCategory.Text;
+            int id = Convert.ToInt32(tbIDCategory.Text);
+
+            if (CategoryDAO.Instance.UpdateCategory(id, name))
+            {
+                MessageBox.Show("Sửa thông tin danh mục thành công");
+                LoadDrink();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi rồi!");
+            }
+        }
+
+        private void btnReloadCategory_Click(object sender, EventArgs e)
+        {
+            LoadCategory();
+        }
+
         //End Drink & Category
 
         void loadUpdate()
@@ -242,6 +296,39 @@ namespace QLTraSua
 
             // Get the real bounds for the tab rectangle.
             Rectangle _tabBounds = tabDetailNV.GetTabRect(e.Index);
+
+            if (e.State == DrawItemState.Selected)
+            {
+
+                // Draw a different background color, and don't paint a focus rectangle.
+                _textBrush = new SolidBrush(Color.PaleGreen);
+            }
+            else
+            {
+                _textBrush = new System.Drawing.SolidBrush(e.ForeColor);
+                e.DrawBackground();
+            }
+
+            // Use our own font.
+            Font _tabFont = new Font("Arial", 10.0f, FontStyle.Bold, GraphicsUnit.Pixel);
+
+            // Draw string. Center the text.
+            StringFormat _stringFlags = new StringFormat();
+            _stringFlags.Alignment = StringAlignment.Center;
+            _stringFlags.LineAlignment = StringAlignment.Center;
+            g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
+        }
+
+        private void tabAdminDetail_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Brush _textBrush;
+
+            // Get the item from the collection.
+            TabPage _tabPage = tabAdminDetail.TabPages[e.Index];
+
+            // Get the real bounds for the tab rectangle.
+            Rectangle _tabBounds = tabAdminDetail.GetTabRect(e.Index);
 
             if (e.State == DrawItemState.Selected)
             {
@@ -692,6 +779,8 @@ namespace QLTraSua
                 }
             }
         }
+
+        
     }
 
 }

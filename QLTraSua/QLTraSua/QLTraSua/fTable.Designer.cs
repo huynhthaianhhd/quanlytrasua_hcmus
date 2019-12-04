@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tabAdmin = new System.Windows.Forms.TabPage();
-            this.tcAdminDetail = new System.Windows.Forms.TabControl();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.tabAdminDetail = new System.Windows.Forms.TabControl();
+            this.tabDoanhthu = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -43,7 +43,7 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.tabDrink = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cbDrinkCategory = new System.Windows.Forms.ComboBox();
@@ -67,19 +67,19 @@
             this.dataListDrink = new System.Windows.Forms.DataGridView();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.tabCategory = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnReloadCategory = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbNameCategory = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbIDCategory = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnEditCategory = new System.Windows.Forms.Button();
+            this.btnAddCategory = new System.Windows.Forms.Button();
+            this.btnDeleteCategory = new System.Windows.Forms.Button();
+            this.dataListCategory = new System.Windows.Forms.DataGridView();
             this.tabHoaDon = new System.Windows.Forms.TabPage();
             this.tabBaoCao = new System.Windows.Forms.TabPage();
             this.tabIncome = new System.Windows.Forms.TabControl();
@@ -162,9 +162,9 @@
             this.fTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fTableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabAdmin.SuspendLayout();
-            this.tcAdminDetail.SuspendLayout();
-            this.tabPage7.SuspendLayout();
-            this.tabPage9.SuspendLayout();
+            this.tabAdminDetail.SuspendLayout();
+            this.tabDoanhthu.SuspendLayout();
+            this.tabDrink.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -174,11 +174,11 @@
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListDrink)).BeginInit();
             this.panel12.SuspendLayout();
-            this.tabPage10.SuspendLayout();
+            this.tabCategory.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataListCategory)).BeginInit();
             this.tabBaoCao.SuspendLayout();
             this.tabIncome.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -200,7 +200,7 @@
             // 
             // tabAdmin
             // 
-            this.tabAdmin.Controls.Add(this.tcAdminDetail);
+            this.tabAdmin.Controls.Add(this.tabAdminDetail);
             this.tabAdmin.Location = new System.Drawing.Point(4, 25);
             this.tabAdmin.Name = "tabAdmin";
             this.tabAdmin.Padding = new System.Windows.Forms.Padding(3);
@@ -209,47 +209,47 @@
             this.tabAdmin.Text = "Admin";
             this.tabAdmin.UseVisualStyleBackColor = true;
             // 
-            // tcAdminDetail
+            // tabAdminDetail
             // 
-            this.tcAdminDetail.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.tcAdminDetail.Controls.Add(this.tabPage7);
-            this.tcAdminDetail.Controls.Add(this.tabPage9);
-            this.tcAdminDetail.Controls.Add(this.tabPage10);
-            this.tcAdminDetail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tcAdminDetail.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.tcAdminDetail.ItemSize = new System.Drawing.Size(40, 100);
-            this.tcAdminDetail.Location = new System.Drawing.Point(3, 3);
-            this.tcAdminDetail.Margin = new System.Windows.Forms.Padding(0);
-            this.tcAdminDetail.Multiline = true;
-            this.tcAdminDetail.Name = "tcAdminDetail";
-            this.tcAdminDetail.Padding = new System.Drawing.Point(0, 0);
-            this.tcAdminDetail.SelectedIndex = 0;
-            this.tcAdminDetail.Size = new System.Drawing.Size(1250, 646);
-            this.tcAdminDetail.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.tcAdminDetail.TabIndex = 3;
+            this.tabAdminDetail.Alignment = System.Windows.Forms.TabAlignment.Left;
+            this.tabAdminDetail.Controls.Add(this.tabDoanhthu);
+            this.tabAdminDetail.Controls.Add(this.tabDrink);
+            this.tabAdminDetail.Controls.Add(this.tabCategory);
+            this.tabAdminDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabAdminDetail.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tabAdminDetail.ItemSize = new System.Drawing.Size(40, 100);
+            this.tabAdminDetail.Location = new System.Drawing.Point(3, 3);
+            this.tabAdminDetail.Margin = new System.Windows.Forms.Padding(0);
+            this.tabAdminDetail.Multiline = true;
+            this.tabAdminDetail.Name = "tabAdminDetail";
+            this.tabAdminDetail.Padding = new System.Drawing.Point(0, 0);
+            this.tabAdminDetail.SelectedIndex = 0;
+            this.tabAdminDetail.Size = new System.Drawing.Size(1250, 646);
+            this.tabAdminDetail.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tabAdminDetail.TabIndex = 3;
             // 
-            // tabPage7
+            // tabDoanhthu
             // 
-            this.tabPage7.Controls.Add(this.label12);
-            this.tabPage7.Controls.Add(this.label13);
-            this.tabPage7.Controls.Add(this.label14);
-            this.tabPage7.Controls.Add(this.label16);
-            this.tabPage7.Controls.Add(this.label17);
-            this.tabPage7.Controls.Add(this.label18);
-            this.tabPage7.Controls.Add(this.label19);
-            this.tabPage7.Controls.Add(this.label20);
-            this.tabPage7.Controls.Add(this.label21);
-            this.tabPage7.Controls.Add(this.label22);
-            this.tabPage7.Controls.Add(this.label23);
-            this.tabPage7.Font = new System.Drawing.Font("Arial", 13F);
-            this.tabPage7.Location = new System.Drawing.Point(104, 4);
-            this.tabPage7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage7.Size = new System.Drawing.Size(1142, 638);
-            this.tabPage7.TabIndex = 0;
-            this.tabPage7.Text = "Doanh thu";
-            this.tabPage7.UseVisualStyleBackColor = true;
+            this.tabDoanhthu.Controls.Add(this.label12);
+            this.tabDoanhthu.Controls.Add(this.label13);
+            this.tabDoanhthu.Controls.Add(this.label14);
+            this.tabDoanhthu.Controls.Add(this.label16);
+            this.tabDoanhthu.Controls.Add(this.label17);
+            this.tabDoanhthu.Controls.Add(this.label18);
+            this.tabDoanhthu.Controls.Add(this.label19);
+            this.tabDoanhthu.Controls.Add(this.label20);
+            this.tabDoanhthu.Controls.Add(this.label21);
+            this.tabDoanhthu.Controls.Add(this.label22);
+            this.tabDoanhthu.Controls.Add(this.label23);
+            this.tabDoanhthu.Font = new System.Drawing.Font("Arial", 13F);
+            this.tabDoanhthu.Location = new System.Drawing.Point(104, 4);
+            this.tabDoanhthu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabDoanhthu.Name = "tabDoanhthu";
+            this.tabDoanhthu.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabDoanhthu.Size = new System.Drawing.Size(1142, 638);
+            this.tabDoanhthu.TabIndex = 0;
+            this.tabDoanhthu.Text = "Doanh thu";
+            this.tabDoanhthu.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
@@ -362,21 +362,21 @@
             this.label23.Text = "Thông tin cá nhân";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tabPage9
+            // tabDrink
             // 
-            this.tabPage9.AccessibleName = "Thức uống";
-            this.tabPage9.Controls.Add(this.panel2);
-            this.tabPage9.Controls.Add(this.dataListDrink);
-            this.tabPage9.Controls.Add(this.panel12);
-            this.tabPage9.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage9.Location = new System.Drawing.Point(104, 4);
-            this.tabPage9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage9.Size = new System.Drawing.Size(1142, 638);
-            this.tabPage9.TabIndex = 3;
-            this.tabPage9.Text = "Thức uống";
-            this.tabPage9.UseVisualStyleBackColor = true;
+            this.tabDrink.AccessibleName = "Thức uống";
+            this.tabDrink.Controls.Add(this.panel2);
+            this.tabDrink.Controls.Add(this.dataListDrink);
+            this.tabDrink.Controls.Add(this.panel12);
+            this.tabDrink.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabDrink.Location = new System.Drawing.Point(104, 4);
+            this.tabDrink.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabDrink.Name = "tabDrink";
+            this.tabDrink.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabDrink.Size = new System.Drawing.Size(1142, 638);
+            this.tabDrink.TabIndex = 3;
+            this.tabDrink.Text = "Quản lý thức uống";
+            this.tabDrink.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -615,30 +615,30 @@
             this.label26.TabIndex = 0;
             this.label26.Text = "Danh mục";
             // 
-            // tabPage10
+            // tabCategory
             // 
-            this.tabPage10.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage10.Controls.Add(this.panel5);
-            this.tabPage10.Controls.Add(this.dataGridView1);
-            this.tabPage10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tabPage10.Location = new System.Drawing.Point(104, 4);
-            this.tabPage10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage10.Size = new System.Drawing.Size(1142, 638);
-            this.tabPage10.TabIndex = 2;
-            this.tabPage10.Text = "Danh mục";
-            this.tabPage10.UseVisualStyleBackColor = true;
+            this.tabCategory.BackColor = System.Drawing.Color.Transparent;
+            this.tabCategory.Controls.Add(this.panel5);
+            this.tabCategory.Controls.Add(this.dataListCategory);
+            this.tabCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabCategory.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tabCategory.Location = new System.Drawing.Point(104, 4);
+            this.tabCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabCategory.Name = "tabCategory";
+            this.tabCategory.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabCategory.Size = new System.Drawing.Size(1142, 638);
+            this.tabCategory.TabIndex = 2;
+            this.tabCategory.Text = "Quản lý danh mục";
+            this.tabCategory.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.button3);
+            this.panel5.Controls.Add(this.btnReloadCategory);
             this.panel5.Controls.Add(this.panel9);
             this.panel5.Controls.Add(this.panel10);
-            this.panel5.Controls.Add(this.button4);
-            this.panel5.Controls.Add(this.button5);
-            this.panel5.Controls.Add(this.button6);
+            this.panel5.Controls.Add(this.btnEditCategory);
+            this.panel5.Controls.Add(this.btnAddCategory);
+            this.panel5.Controls.Add(this.btnDeleteCategory);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel5.Location = new System.Drawing.Point(669, 2);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -646,33 +646,34 @@
             this.panel5.Size = new System.Drawing.Size(470, 634);
             this.panel5.TabIndex = 3;
             // 
-            // button3
+            // btnReloadCategory
             // 
-            this.button3.AutoSize = true;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(357, 409);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(79, 44);
-            this.button3.TabIndex = 50;
-            this.button3.Text = "Tải lại";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnReloadCategory.AutoSize = true;
+            this.btnReloadCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReloadCategory.Location = new System.Drawing.Point(357, 409);
+            this.btnReloadCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReloadCategory.Name = "btnReloadCategory";
+            this.btnReloadCategory.Size = new System.Drawing.Size(79, 44);
+            this.btnReloadCategory.TabIndex = 50;
+            this.btnReloadCategory.Text = "Tải lại";
+            this.btnReloadCategory.UseVisualStyleBackColor = true;
+            this.btnReloadCategory.Click += new System.EventHandler(this.btnReloadCategory_Click);
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.textBox2);
+            this.panel9.Controls.Add(this.tbNameCategory);
             this.panel9.Controls.Add(this.label11);
             this.panel9.Location = new System.Drawing.Point(0, 83);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(467, 63);
             this.panel9.TabIndex = 48;
             // 
-            // textBox2
+            // tbNameCategory
             // 
-            this.textBox2.Location = new System.Drawing.Point(103, 22);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(330, 26);
-            this.textBox2.TabIndex = 1;
+            this.tbNameCategory.Location = new System.Drawing.Point(103, 22);
+            this.tbNameCategory.Name = "tbNameCategory";
+            this.tbNameCategory.Size = new System.Drawing.Size(330, 26);
+            this.tbNameCategory.TabIndex = 1;
             // 
             // label11
             // 
@@ -685,20 +686,20 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.textBox3);
+            this.panel10.Controls.Add(this.tbIDCategory);
             this.panel10.Controls.Add(this.label28);
             this.panel10.Location = new System.Drawing.Point(0, 14);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(467, 63);
             this.panel10.TabIndex = 46;
             // 
-            // textBox3
+            // tbIDCategory
             // 
-            this.textBox3.Location = new System.Drawing.Point(103, 22);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(330, 26);
-            this.textBox3.TabIndex = 1;
+            this.tbIDCategory.Location = new System.Drawing.Point(103, 22);
+            this.tbIDCategory.Name = "tbIDCategory";
+            this.tbIDCategory.ReadOnly = true;
+            this.tbIDCategory.Size = new System.Drawing.Size(330, 26);
+            this.tbIDCategory.TabIndex = 1;
             // 
             // label28
             // 
@@ -709,53 +710,55 @@
             this.label28.TabIndex = 0;
             this.label28.Text = "ID:";
             // 
-            // button4
+            // btnEditCategory
             // 
-            this.button4.AutoSize = true;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(236, 409);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(78, 44);
-            this.button4.TabIndex = 45;
-            this.button4.Text = "Sửa";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnEditCategory.AutoSize = true;
+            this.btnEditCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditCategory.Location = new System.Drawing.Point(236, 409);
+            this.btnEditCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEditCategory.Name = "btnEditCategory";
+            this.btnEditCategory.Size = new System.Drawing.Size(78, 44);
+            this.btnEditCategory.TabIndex = 45;
+            this.btnEditCategory.Text = "Sửa";
+            this.btnEditCategory.UseVisualStyleBackColor = true;
+            this.btnEditCategory.Click += new System.EventHandler(this.btnEditCategory_Click);
             // 
-            // button5
+            // btnAddCategory
             // 
-            this.button5.AutoSize = true;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(19, 409);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(77, 44);
-            this.button5.TabIndex = 33;
-            this.button5.Text = "Thêm";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnAddCategory.AutoSize = true;
+            this.btnAddCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCategory.Location = new System.Drawing.Point(19, 409);
+            this.btnAddCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddCategory.Name = "btnAddCategory";
+            this.btnAddCategory.Size = new System.Drawing.Size(77, 44);
+            this.btnAddCategory.TabIndex = 33;
+            this.btnAddCategory.Text = "Thêm";
+            this.btnAddCategory.UseVisualStyleBackColor = true;
+            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
             // 
-            // button6
+            // btnDeleteCategory
             // 
-            this.button6.AutoSize = true;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(132, 409);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(68, 44);
-            this.button6.TabIndex = 34;
-            this.button6.Text = "Xóa";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnDeleteCategory.AutoSize = true;
+            this.btnDeleteCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteCategory.Location = new System.Drawing.Point(132, 409);
+            this.btnDeleteCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDeleteCategory.Name = "btnDeleteCategory";
+            this.btnDeleteCategory.Size = new System.Drawing.Size(68, 44);
+            this.btnDeleteCategory.TabIndex = 34;
+            this.btnDeleteCategory.Text = "Xóa";
+            this.btnDeleteCategory.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataListCategory
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 2);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(660, 634);
-            this.dataGridView1.TabIndex = 2;
+            this.dataListCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataListCategory.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dataListCategory.Location = new System.Drawing.Point(3, 2);
+            this.dataListCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataListCategory.Name = "dataListCategory";
+            this.dataListCategory.RowHeadersWidth = 51;
+            this.dataListCategory.RowTemplate.Height = 24;
+            this.dataListCategory.Size = new System.Drawing.Size(660, 634);
+            this.dataListCategory.TabIndex = 2;
             // 
             // tabHoaDon
             // 
@@ -1679,10 +1682,10 @@
             this.Text = "Main";
             this.Load += new System.EventHandler(this.fTable_Load);
             this.tabAdmin.ResumeLayout(false);
-            this.tcAdminDetail.ResumeLayout(false);
-            this.tabPage7.ResumeLayout(false);
-            this.tabPage7.PerformLayout();
-            this.tabPage9.ResumeLayout(false);
+            this.tabAdminDetail.ResumeLayout(false);
+            this.tabDoanhthu.ResumeLayout(false);
+            this.tabDoanhthu.PerformLayout();
+            this.tabDrink.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -1699,14 +1702,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataListDrink)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
-            this.tabPage10.ResumeLayout(false);
+            this.tabCategory.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataListCategory)).EndInit();
             this.tabBaoCao.ResumeLayout(false);
             this.tabIncome.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -1738,8 +1741,8 @@
         private System.Windows.Forms.BindingSource fTableBindingSource;
         private System.Windows.Forms.BindingSource fTableBindingSource1;
         private System.Windows.Forms.TabPage tabAdmin;
-        private System.Windows.Forms.TabControl tcAdminDetail;
-        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.TabControl tabAdminDetail;
+        private System.Windows.Forms.TabPage tabDoanhthu;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
@@ -1751,7 +1754,7 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.TabPage tabDrink;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnReload;
         private System.Windows.Forms.Panel panel11;
@@ -1766,7 +1769,7 @@
         private System.Windows.Forms.Button btnAddDrink;
         private System.Windows.Forms.Button btnDeleteDrink;
         private System.Windows.Forms.DataGridView dataListDrink;
-        private System.Windows.Forms.TabPage tabPage10;
+        private System.Windows.Forms.TabPage tabCategory;
         private System.Windows.Forms.TabPage tabHoaDon;
         private System.Windows.Forms.TabPage tabBaoCao;
         private System.Windows.Forms.TabControl tabIncome;
@@ -1856,16 +1859,16 @@
         private System.Windows.Forms.ComboBox cbDrinkCategory;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnReloadCategory;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbNameCategory;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbIDCategory;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnEditCategory;
+        private System.Windows.Forms.Button btnAddCategory;
+        private System.Windows.Forms.Button btnDeleteCategory;
+        private System.Windows.Forms.DataGridView dataListCategory;
     }
 }

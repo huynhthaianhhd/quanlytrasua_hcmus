@@ -54,6 +54,22 @@ namespace QLTraSua.DAO
 
             return category;
         }
+
+        public bool InsertCategory(string name)
+        {
+            string query = string.Format("INSERT dbo.DRINK_TYPE (NAME_TYPE) VALUES (N'{0}')", name);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return (result > 0);
+        }
+
+        public bool UpdateCategory(int id, string name)
+        {
+            string query = string.Format("UPDATE dbo.DRINK_TYPE SET NAME_TYPE = N'{0}' WHERE ID_TYPE = {1}", name, id);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return (result > 0);
+        }
     }
 }
 
