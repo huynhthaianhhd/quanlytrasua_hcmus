@@ -21,7 +21,7 @@ namespace QLTraSua.DAO
 
         private DataProvider(){}
 
-        private string connectionSTR = "Data Source=MINH-C;Initial Catalog=QUANLYTS;Integrated Security=True";
+        private string connectionSTR = @"Data Source=LAPTOP-P0RK52V5;Initial Catalog=QUANLYTS;Integrated Security=True";
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {

@@ -133,3 +133,4 @@ C:\Users\ASUS\Documents\GitHub\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\obj
 C:\Users\ASUS\Documents\GitHub\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\bin\Debug\QLTraSua.exe.config
 C:\Users\ASUS\Documents\GitHub\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\bin\Debug\QLTraSua.exe
 C:\Users\ASUS\Documents\GitHub\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\bin\Debug\QLTraSua.pdb
+C:\Users\ASUS\Documents\GitHub\quanlytrasua_hcmus\QLTraSua\QLTraSua\QLTraSua\obj\Debug\QLTraSua.csprojAssemblyReference.cache
