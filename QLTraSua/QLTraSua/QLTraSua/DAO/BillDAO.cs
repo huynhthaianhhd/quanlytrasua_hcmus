@@ -58,10 +58,10 @@ namespace QLTraSua.DAO
         public int GetBillByTableID(int id)
         {
             DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.BILL WHERE ID_TABLE = " + id);
-
-            if (data.Rows.Count > 0)
+            int numRows = data.Rows.Count;
+            if (numRows > 0)
             {
-                Bill bill = new Bill(data.Rows[0]);
+                Bill bill = new Bill(data.Rows[numRows-1]);
                 return bill.Status;
             }
             return 0;
@@ -76,8 +76,12 @@ namespace QLTraSua.DAO
 
         public void checkOut(int id, float totalPrice)
         {
-            string query = "UPDATE dbo.BILL SET IS_PAID = 1, " + " TOTAL_PRICE = " + totalPrice + " WHERE ID_BILL = " + id;
+            string query = "UPDATE dbo.BILL SET ORDERTIME = GETDATE(), IS_PAID = 1, " + " TOTAL_PRICE = " + totalPrice + " WHERE ID_BILL = " + id;
             DataProvider.Instance.ExecuteNonQuery(query);
+        }
+        public DataTable GetListByDate(DateTime dateFrom,DateTime dateTo)
+        {
+           return DataProvider.Instance.ExecuteQuery("EXEC USP_GetListBillByDate @dateFrom , @dateTo", new object[]{dateFrom,dateTo});
         }
     }
 }

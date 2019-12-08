@@ -26,7 +26,7 @@ namespace QLTraSua.DAO
         {
             List<Food> list = new List<Food>();
 
-            string query = "SELECT * FROM dbo.DRINK WHERE ID_TYPE = " + id;
+            string query = "SELECT * FROM dbo.DRINK WHERE ISDELETE = 0 AND ID_TYPE = " + id;
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
@@ -58,7 +58,7 @@ namespace QLTraSua.DAO
 
         public Food GetFoodByName(string name)
         {
-            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.DRINK WHERE NAME_DRINK = N'"+ name +"'");
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.DRINK WHERE ISDELETE = 0 AND NAME_DRINK = N'"+ name +"'");
 
             if (data.Rows.Count > 0)
             {

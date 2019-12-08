@@ -198,10 +198,7 @@ namespace QLTraSua
             }
         }
 
-        private void btnReload_Click(object sender, EventArgs e)
-        {
-            LoadDrink();
-        }
+        
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -217,7 +214,7 @@ namespace QLTraSua
             if (CategoryDAO.Instance.InsertCategory(name))
             {
                 MessageBox.Show("Thêm danh mục thành công");
-                LoadDrink();
+                LoadCategory();
             }
             else
             {
@@ -233,7 +230,7 @@ namespace QLTraSua
             if (CategoryDAO.Instance.UpdateCategory(id, name))
             {
                 MessageBox.Show("Sửa thông tin danh mục thành công");
-                LoadDrink();
+                LoadCategory();
             }
             else
             {
@@ -241,10 +238,7 @@ namespace QLTraSua
             }
         }
 
-        private void btnReloadCategory_Click(object sender, EventArgs e)
-        {
-            LoadCategory();
-        }
+        
 
         //End Drink & Category
 
@@ -778,6 +772,14 @@ namespace QLTraSua
                     MessageBox.Show("Bạn không phải là admin", "Thông báo");
                 }
             }
+        }
+        void LoadListByDate(DateTime dateFrom, DateTime dateTo)
+        {
+            dtgBill.DataSource = BillDAO.Instance.GetListByDate(dateFrom, dateTo);
+        }
+        private void btnTk_Click(object sender, EventArgs e)
+        {
+            LoadListByDate(dtpFrom.Value, dtpToday.Value);
         }
 
         

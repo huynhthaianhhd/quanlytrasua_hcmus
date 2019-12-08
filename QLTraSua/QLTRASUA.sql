@@ -91,9 +91,9 @@ INSERT dbo.USERS
           EMAIL ,
           PHONE
         )
-VALUES  ( N'a1' , -- USERNAME - nvarchar(100)
+VALUES  ( N'a2' , -- USERNAME - nvarchar(100)
           N'1' , -- PASSWORD - nvarchar(100)
-          0 , -- PERMISSION - int
+          1 , -- PERMISSION - int
           N'' , -- NAME_USER - nvarchar(100)
           N'' , -- EMAIL - nchar(50)
           0  -- PHONE - int
@@ -203,95 +203,9 @@ VALUES  ( N'Trà sữa truyền thống' , -- NAME_DRINK - nvarchar(100)
           0  -- ISDELETE - bit
         )
 
-	--- BILLL
-
-INSERT dbo.BILL
-        ( ORDERTIME ,
-          ID_TABLE ,
-          IS_PAID ,
-		  IS_TAKEAWAY
-        )
-VALUES  ( GETDATE() , -- ORDERTIME - date
-          1 , -- ID_TABLE - int
-          0 ,
-		  0
-        )
-
-INSERT dbo.BILL
-        ( ORDERTIME ,
-          ID_TABLE ,
-          IS_PAID ,
-		  IS_TAKEAWAY
-        )
-VALUES  ( GETDATE() , -- ORDERTIME - date
-          2 , -- ID_TABLE - int
-          0 ,
-		  0
-        )
-
-INSERT dbo.BILL
-        ( ORDERTIME ,
-          ID_TABLE ,
-          IS_PAID,
-		  IS_TAKEAWAY
-        )
-VALUES  ( GETDATE() , -- ORDERTIME - date
-          3 , -- ID_TABLE - int
-          1 ,
-		  0
-        )
 
 
---- DETAIL BILL
 
-INSERT dbo.DETAIL_BILL
-        ( ID_BILL, ID_DRINK, QUANTITY )
-VALUES  ( 1, -- ID_BILL - int
-          2, -- ID_DRINK - int
-          2  -- QUANTITY - int
-          )
-INSERT dbo.DETAIL_BILL
-        ( ID_BILL, ID_DRINK, QUANTITY )
-VALUES  ( 1, -- ID_BILL - int
-          1, -- ID_DRINK - int
-          1  -- QUANTITY - int
-          )
-
-
-INSERT dbo.DETAIL_BILL
-        ( ID_BILL, ID_DRINK, QUANTITY )
-VALUES  ( 2, -- ID_BILL - int
-          3, -- ID_DRINK - int
-          2  -- QUANTITY - int
-          )
-INSERT dbo.DETAIL_BILL
-        ( ID_BILL, ID_DRINK, QUANTITY )
-VALUES  ( 2, -- ID_BILL - int
-          1, -- ID_DRINK - int
-          2  -- QUANTITY - int
-          )
-
-INSERT dbo.DETAIL_BILL
-        ( ID_BILL, ID_DRINK, QUANTITY )
-VALUES  ( 3, -- ID_BILL - int
-          1, -- ID_DRINK - int
-          3  -- QUANTITY - int
-          )
-INSERT dbo.DETAIL_BILL
-        ( ID_BILL, ID_DRINK, QUANTITY )
-VALUES  ( 3, -- ID_BILL - int
-          2, -- ID_DRINK - int
-          4  -- QUANTITY - int
-          )
-
-SELECT * FROM dbo.BILL
-SELECT * FROM dbo.DETAIL_BILL
-SELECT * FROM dbo.DRINK
-SELECT * FROM dbo.DRINK_TYPE
-
-SELECT * FROM dbo.BILL WHERE ID_TABLE = 1  AND IS_PAID = 0
-
-SELECT * FROM dbo.DETAIL_BILL WHERE ID_BILL = 1
 
 EXEC dbo.US_getTableList
 
@@ -384,23 +298,17 @@ END
 GO
 
 
+CREATE PROC [dbo].[USP_GetListBillByDate]
+@dateFrom date, @dateTo date
+AS 
+BEGIN
+	SELECT t.NAME_TABLE AS [Tên bàn], b.TOTAL_PRICE AS [Tổng tiền], b.ORDERTIME AS [Ngày order]
+	FROM dbo.BILL AS b,dbo.TABLE_DRINK AS t
+	WHERE b.ORDERTIME >= @dateFrom AND b.ORDERTIME <= @dateTo AND b.IS_PAID = 1
+	AND t.ID_TABLE = b.ID_TABLE
+END
 
 
-DELETE FROM dbo.DETAIL_BILL
-DELETE FROM dbo.BILL
 
-	SELECT * FROM dbo.TABLE_DRINK
-	SELECT * FROM dbo.BILL
-	SELECT * FROM dbo.DETAIL_BILL
-SELECT * FROM dbo.BILL WHERE ID_TABLE = 1 AND IS_PAID = 0
-GO
 
-SELECT f.NAME_DRINK, bi.QUANTITY, f.PRICE, f.PRICE*bi.QUANTITY AS totalPrice 
-FROM dbo.DETAIL_BILL AS bi, dbo.BILL AS b, dbo.DRINK AS f ,dbo.TABLE_DRINK AS d
-WHERE d.ID_TABLE= b.ID_TABLE AND bi.ID_BILL = b.ID_BILL AND bi.ID_DRINK = f.ID_DRINK AND d.STATUS = N'Trống' AND b.IS_PAID=0 AND b.ID_TABLE = 1 
 
-EXEC dbo.US_getTableList
-
-SELECT * FROM dbo.BILL WHERE ID_TABLE = 1
-
-SELECT * FROM DRINK WHERE (ISDELETE = 0)

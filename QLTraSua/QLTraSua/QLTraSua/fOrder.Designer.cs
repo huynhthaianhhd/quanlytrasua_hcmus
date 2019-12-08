@@ -71,7 +71,7 @@
             this.panel2.Controls.Add(this.lsvBill);
             this.panel2.Location = new System.Drawing.Point(592, 1);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(321, 510);
+            this.panel2.Size = new System.Drawing.Size(455, 510);
             this.panel2.TabIndex = 1;
             // 
             // nameOrder
@@ -95,7 +95,7 @@
             this.columnHeader4});
             this.lsvBill.Location = new System.Drawing.Point(3, 3);
             this.lsvBill.Name = "lsvBill";
-            this.lsvBill.Size = new System.Drawing.Size(315, 448);
+            this.lsvBill.Size = new System.Drawing.Size(452, 462);
             this.lsvBill.TabIndex = 0;
             this.lsvBill.UseCompatibleStateImageBehavior = false;
             this.lsvBill.View = System.Windows.Forms.View.Details;
@@ -117,6 +117,7 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "Thành tiền";
+            this.columnHeader4.Width = 102;
             // 
             // panel3
             // 
@@ -184,7 +185,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 631);
+            this.ClientSize = new System.Drawing.Size(1048, 627);
             this.Controls.Add(this.cbType);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);

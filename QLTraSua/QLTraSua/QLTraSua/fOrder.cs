@@ -53,18 +53,18 @@ namespace QLTraSua
         }
         void LoadFood()
         {
-            
+
             lsvOrder.Items.Clear();
             List<Food> listFood = FoodDAO.Instance.GetListFood();
             ImageList imgList;
+
             imgList = new ImageList() { ImageSize = new Size(60, 60) };
             lsvOrder.LargeImageList = imgList;
-            foreach (Food item in listFood) 
+            imgList.Images.Add(Image.FromFile(Application.StartupPath + "\\Image\\1.jpg"));
+            foreach (Food item in listFood)
             {
                 ListViewItem lsvItem = new ListViewItem(item.Name.ToString());
-                imgList.Images.Add(Image.FromFile(Application.StartupPath + "\\Image\\" + item.ID + ".jpg"));
-             //   imgList.Images.Add(Image.FromFile("D:/1/"+item.ID +".jpg"));
-                lsvItem.ImageIndex = item.ID-1;
+                lsvItem.ImageIndex = 0;
                 lsvOrder.Items.Add(lsvItem);
             }
         }
@@ -77,13 +77,11 @@ namespace QLTraSua
             imgList = new ImageList() { ImageSize = new Size(60,60) };
             lsvOrder.LargeImageList = imgList;
             imgList.Images.Clear();
-            int i = 0;
+            imgList.Images.Add(Image.FromFile(Application.StartupPath + "\\Image\\1.jpg"));
             foreach (Food item in listFood)
             {
                 ListViewItem lsvItem = new ListViewItem(item.Name.ToString());
-                imgList.Images.Add(Image.FromFile("D:/1/"+ item.ID + ".jpg"));
-                lsvItem.ImageIndex = i;
-                i++;
+                lsvItem.ImageIndex = 0;
                 lsvOrder.Items.Add(lsvItem);
             }
 
